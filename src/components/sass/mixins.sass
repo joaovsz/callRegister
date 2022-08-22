@@ -1,0 +1,16 @@
+@mixin flexRow($padding)
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  padding-left: $padding
+  padding-right: $padding
+
+@mixin flexColumn($padding)
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  align-items: left
+  gap:.8rem
+  padding-top: $padding
+  padding-bottom: $padding

@@ -1,0 +1,31 @@
+@import variables.sass
+@import mixins.sass
+
+main
+  width: 100vw
+  height: 50vh
+  gap: 1.5rem
+  display: flex
+  align-items: center
+  justify-content: space-between
+  
+  #tableInfo
+    @include flexColumn(0)
+    width:60%
+    height: 26rem
+    margin-right: 4rem
+
+    .MuiPaper-root
+      height:26rem
+      
+      .MuiTable-root  
+        height:100%
+
+      .MuiTableHead-root tr th
+        font-weight: bold
+        font-size: 1.2rem
+
+      .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root
+        font-size: 1.2rem
+        font-weight: bold
+              
