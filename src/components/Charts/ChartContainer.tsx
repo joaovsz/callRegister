@@ -5,16 +5,18 @@ export const data = [
   ["Task", "Hours per Day"],
   ["Retido", 11],
   ["Badcall", 15],
-  ["Cancelado BRI", 3],
-  ["Cancelado Comodato", 2],
-  ["Pré Pago", 8],
+  ["Cancelado BRI", 1],
+  ["Cancelado Comodato", 3],
+  ["Pré Pago", 6],
 ];
 
-export const options = { 
-  title: "Tipo da chamada"
+export const typeCall = { 
+  title: "Tipo da chamada",
+  colors: ['#7DCE13', '#EAE509','#EF5B0C', '#990000', '#3B44F6']
 }
-export const option2 = { 
-  title: "Motivo do cancelamento"
+export const typeCancelamento = { 
+  title: "Motivo do cancelamento",
+  colors: ['#7DCE13', '#EAE509','#EF5B0C', '#990000', '#3B44F6']
 }
 
 
@@ -26,14 +28,15 @@ export const ChartContainer = () => {
     <Chart
       chartType="PieChart"
       data={data}
-      options={options}
+      options={typeCall}
       width={"100%"}
       height={"400px"}
+      
       />
     <Chart
       chartType="PieChart"
       data={data}
-      options={option2}
+      options={typeCancelamento}
       width={"100%"}
       height={"400px"}
       />

@@ -9,17 +9,19 @@ export const Form = () => {
   const [typeCall, setTypeCall] = useState('')
   const [typeCanceled, setTypeCanceled] = useState('')
 
-  const handleChange = 
-  (event: React.MouseEvent<HTMLElement>, newCall: string) => {
-    setTypeCall(newCall)
-  }
-  const handleChangeCanceled = 
-  (event: React.MouseEvent<HTMLElement>, newCanceled: string) => {
-    setTypeCanceled(newCanceled)
-  }
+  const handleChange =
+    (event: React.MouseEvent<HTMLElement>, newCall: string) => {
+      setTypeCall(newCall)
+    }
+  const handleChangeCanceled =
+    (event: React.MouseEvent<HTMLElement>, newCanceled: string) => {
+      setTypeCanceled(newCanceled)
+    }
+
+    
   return (
     <form id="registerCall">
-       <h2>Tipo da chamada</h2>
+      <h2>Tipo da chamada</h2>
       <ToggleButtonGroup
         exclusive
         onChange={handleChange}
@@ -46,10 +48,10 @@ export const Form = () => {
         <ToggleButton value="canalOi">Canal Oi</ToggleButton>
         <ToggleButton value="faturas">Problema com fatura</ToggleButton>
         <ToggleButton value="agendamento">Sem Agendamento</ToggleButton>
-        </ToggleButtonGroup>
-        <h3>Telefone para contato</h3>
-        <TextField type="" id="outlined-basic" placeholder="62999999999" variant="outlined" />
-        <Button variant="contained" disableElevation id="registerButton">Registrar</Button>
+      </ToggleButtonGroup>
+      <h3>Telefone para contato</h3>
+      <TextField type="" id="outlined-basic" placeholder="62999999999" variant="outlined" />
+      <Button variant="contained" disableElevation id="registerButton">Registrar</Button>
     </form>
   )
 }

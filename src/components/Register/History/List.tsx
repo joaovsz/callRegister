@@ -1,4 +1,3 @@
-import React from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -23,26 +22,7 @@ function createData(typeCall: string, typeCanceled:string, info?: string | numbe
     createData("Retido", "Sem agendamento", "62992490411"),
     createData("Retido", "Sem agendamento", "62992490411"),
     createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
+    
     createData("Retido", "Sem agendamento", "62992490411")
   ]
   
