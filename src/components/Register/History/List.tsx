@@ -5,26 +5,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { ChartsContext } from '../../context/chart_context';
+import { useContext } from 'react';
 
 
 export const List = () => {
+const {calls} = useContext(ChartsContext)
 
-function createData(typeCall: string, typeCanceled:string, info?: string | number) {
-    return { typeCall, typeCanceled, info };
-  }
 
-  const rows = [
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    createData("Retido", "Sem agendamento", "62992490411"),
-    
-    createData("Retido", "Sem agendamento", "62992490411")
-  ]
   
   return (
     <div id="tableInfo">
@@ -40,7 +28,7 @@ function createData(typeCall: string, typeCanceled:string, info?: string | numbe
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {calls.map((row) => (
             <TableRow
               key={row.typeCall}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

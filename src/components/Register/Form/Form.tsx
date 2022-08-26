@@ -2,23 +2,20 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ChartsContext } from '../../context/chart_context';
 import '../../sass/form.sass'
 
 export const Form = () => {
-  const [typeCall, setTypeCall] = useState('')
-  const [typeCanceled, setTypeCanceled] = useState('')
 
-  const handleChange =
-    (event: React.MouseEvent<HTMLElement>, newCall: string) => {
-      setTypeCall(newCall)
-    }
-  const handleChangeCanceled =
-    (event: React.MouseEvent<HTMLElement>, newCanceled: string) => {
-      setTypeCanceled(newCanceled)
-    }
-
-    
+const {
+  typeCall, 
+  typeCanceled,
+  handleChange, 
+  handleChangeCanceled,
+  handleChangeInfo,
+  registerCall} = useContext(ChartsContext)
+  
   return (
     <form id="registerCall">
       <h2>Tipo da chamada</h2>
@@ -29,11 +26,11 @@ export const Form = () => {
         color="primary"
         aria-label="Platform"
       >
-        <ToggleButton value="retido">Retido</ToggleButton>
-        <ToggleButton value="badcall">BadCall</ToggleButton>
-        <ToggleButton value="prepago">Pré-pago</ToggleButton>
-        <ToggleButton value="canceladoBRI">Cancelado BRI</ToggleButton>
-        <ToggleButton value="canceladoCOMODATO">Cancelado COMODATO</ToggleButton>
+        <ToggleButton value="RETIDO">Retido</ToggleButton>
+        <ToggleButton value="BADCALL">BadCall</ToggleButton>
+        <ToggleButton value="PRE_PAGO">Pré-pago</ToggleButton>
+        <ToggleButton value="CANCELADO_BRI">Cancelado BRI</ToggleButton>
+        <ToggleButton value="CANCELADO_COMODATO">Cancelado COMODATO</ToggleButton>
       </ToggleButtonGroup>
       <h2>Motivo do Cancelamento</h2>
       <ToggleButtonGroup
@@ -43,15 +40,22 @@ export const Form = () => {
         onChange={handleChangeCanceled}
         aria-label="Platform"
       >
-        <ToggleButton value="precoAlto">Preço Alto</ToggleButton>
-        <ToggleButton value="VendaIndevida">Venda Indevida</ToggleButton>
-        <ToggleButton value="canalOi">Canal Oi</ToggleButton>
-        <ToggleButton value="faturas">Problema com fatura</ToggleButton>
-        <ToggleButton value="agendamento">Sem Agendamento</ToggleButton>
+        <ToggleButton value="PRECO_ALTO">Preço Alto</ToggleButton>
+        <ToggleButton value="VENDA_INDEVIDA">Venda Indevida</ToggleButton>
+        <ToggleButton value="CANAL_OI">Canal Oi</ToggleButton>
+        <ToggleButton value="FATURAS">Problema com fatura</ToggleButton>
+        <ToggleButton value="AGENDAMENTO">Sem Agendamento</ToggleButton>
       </ToggleButtonGroup>
       <h3>Telefone para contato</h3>
-      <TextField type="" id="outlined-basic" placeholder="62999999999" variant="outlined" />
-      <Button variant="contained" disableElevation id="registerButton">Registrar</Button>
+      <TextField id="outlined-basic" onChange={handleChangeInfo}placeholder="62999999999" variant="outlined" />
+      <Button 
+      onClick={registerCall}
+      variant="contained" 
+      disableElevation id="registerButton"
+
+      >Registrar</Button>
     </form>
   )
 }
+
+
