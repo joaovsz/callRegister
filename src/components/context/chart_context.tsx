@@ -57,8 +57,8 @@ export function ChartProvider(props: any){
     typeCanceled: typeCanceled,
     info: info
    }
-   
-
+   calls.push(register);
+  
   }
 
 return(
