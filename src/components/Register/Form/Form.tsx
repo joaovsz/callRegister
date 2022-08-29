@@ -28,9 +28,9 @@ const {
       >
         <ToggleButton value="RETIDO">Retido</ToggleButton>
         <ToggleButton value="BADCALL">BadCall</ToggleButton>
-        <ToggleButton value="PRE_PAGO">Pré-pago</ToggleButton>
-        <ToggleButton value="CANCELADO_BRI">Cancelado BRI</ToggleButton>
-        <ToggleButton value="CANCELADO_COMODATO">Cancelado COMODATO</ToggleButton>
+        <ToggleButton value="PRE PAGO">Pré-pago</ToggleButton>
+        <ToggleButton value="CANCELADO BRI">Cancelado BRI</ToggleButton>
+        <ToggleButton value="CANCELADO COMODATO">Cancelado COMODATO</ToggleButton>
       </ToggleButtonGroup>
       <h2>Motivo do Cancelamento</h2>
       <ToggleButtonGroup
@@ -40,9 +40,9 @@ const {
         onChange={handleChangeCanceled}
         aria-label="Platform"
       >
-        <ToggleButton value="PRECO_ALTO">Preço Alto</ToggleButton>
-        <ToggleButton value="VENDA_INDEVIDA">Venda Indevida</ToggleButton>
-        <ToggleButton value="CANAL_OI">Canal Oi</ToggleButton>
+        <ToggleButton value="PREÇO ALTO">Preço Alto</ToggleButton>
+        <ToggleButton value="VENDA INDEVIDA">Venda Indevida</ToggleButton>
+        <ToggleButton value="CANAL OI">Canal Oi</ToggleButton>
         <ToggleButton value="FATURAS">Problema com fatura</ToggleButton>
         <ToggleButton value="AGENDAMENTO">Sem Agendamento</ToggleButton>
       </ToggleButtonGroup>

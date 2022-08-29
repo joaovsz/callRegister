@@ -8,7 +8,6 @@ import Paper from '@mui/material/Paper';
 import { ChartsContext } from '../../context/chart_context';
 import { useContext } from 'react';
 
-
 export const List = () => {
 const {calls} = useContext(ChartsContext)
 
@@ -28,14 +27,15 @@ const {calls} = useContext(ChartsContext)
           </TableRow>
         </TableHead>
         <TableBody>
-          {calls.map((row) => (
+          {calls.map((row, index) => (
             <TableRow
-              key={row.typeCall}
+              key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 {row.typeCall}
               </TableCell>
+            
               <TableCell align="right">{row.typeCanceled}</TableCell>
               <TableCell align="right">{row.info}</TableCell>
             </TableRow>

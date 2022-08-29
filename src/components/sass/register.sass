@@ -2,6 +2,9 @@
 @import mixins.sass
 
 main
+ 
+  color: $background
+  
   width: 100vw
   height: 50vh
   gap: 1.5rem
@@ -10,6 +13,7 @@ main
   justify-content: space-between
   
   #tableInfo
+    
     @include flexColumn(0)
     width:60%
     height: 26rem
@@ -17,15 +21,19 @@ main
 
     .MuiPaper-root
       height:26rem
-      
+      background: $background
+      border-radius: 1rem
+      padding: 0.5rem
       .MuiTable-root  
         height:100%
 
       .MuiTableHead-root tr th
         font-weight: bold
         font-size: 1.2rem
-
+        color: $white-bg
       .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root
         font-size: 1.2rem
-        font-weight: bold
+        font-weight: 300
+        color: $white-bg
+
               
