@@ -3,3 +3,10 @@ export type Register ={
   typeCanceled: string, 
   info: string
 } 
+export type DataCalls = {
+  canceladoCOMODATO: number,
+  canceladoBRI: number,
+  badCall: number,
+  retidos: number,
+  PrePago: number,
+} 
