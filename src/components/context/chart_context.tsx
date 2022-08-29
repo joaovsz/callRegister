@@ -1,92 +1,111 @@
 import { createContext, SetStateAction, useEffect, useState } from "react";
-
-import { Register } from "../types/context";
+import { Register, DataCalls } from "../types/context";
 
 //No contexto sempre criar valores iniciais e declarações de tipo
 
-interface chartContexts{
+interface chartContexts {
   typeCall: string,
   typeCanceled: string,
   info: string,
-  retidos: number,
-  canceladoBRI: number,
-  canceladoCOMODATO: number,
-  prePagos: number,
-  badCall: number,
   calls: Register[],
-  handleChange: (e:any, canceledValue:string) =>void,
-  handleChangeCanceled: (e:any, typeCanceled:string)=>void,
-  handleChangeInfo: (e:{target:{value:string}})=>void,
-  registerCall: ()=>void,
-  countCall:()=>void
-  // createData: (typeCall:string, typeCanceled:string, info:string) =>void
+  infoCalls: DataCalls,
+  handleChange: (e: any, canceledValue: string) => void,
+  handleChangeCanceled: (e: any, typeCanceled: string) => void,
+  handleChangeInfo: (e: { target: { value: string } }) => void,
+  registerCall: () => void,
+  countCall: () => void
 }
-const initialValue={
+const initialValue = {
   typeCall: '',
   typeCanceled: '',
   info: '',
-  retidos: 0,
-  canceladoBRI: 0,
-  canceladoCOMODATO: 0,
-  prePagos: 0,
-  badCall: 0,
-  calls:[],
-  handleChange: ()=>{},
-  handleChangeCanceled: ()=>{},
-  handleChangeInfo: ()=>{},
-  registerCall:()=>{},
-  countCall:()=>{}
- 
-}
-export const ChartsContext = createContext<chartContexts>(initialValue) 
+  infoCalls: {
+    canceladoCOMODATO: 0,
+    canceladoBRI: 0, badCall: 0,
+    retidos: 0, PrePago: 0
+  },
+  calls: [],
+  handleChange: () => { },
+  handleChangeCanceled: () => { },
+  handleChangeInfo: () => { },
+  registerCall: () => { },
+  countCall: () => { }
 
-export function ChartProvider(props: any){
+}
+export const ChartsContext = createContext<chartContexts>(initialValue)
+
+export function ChartProvider(props: any) {
   const [typeCall, setTypeCall] = useState(initialValue.typeCall)
   const [typeCanceled, setTypeCanceled] = useState(initialValue.typeCanceled)
   const [info, setInfo] = useState(initialValue.info)
   const [calls, setCalls] = useState<Register[]>(initialValue.calls)
-  const [retidos, setRetidos] = useState(initialValue.retidos)
-  const [canceladoBRI, setCanceladosBRI] = useState(initialValue.canceladoBRI)
-  const [canceladoCOMODATO, setCanceladosCOMODATO] = useState(initialValue.canceladoCOMODATO)
-  const [prePagos, setPrepago] = useState(initialValue.prePagos)
-  const [badCall, setBadCall] = useState(initialValue.badCall)
-  
-  function handleChange(_event: React.MouseEvent<HTMLElement>, canceledValue:string){
+  const infoCalls = {
+    canceladoCOMODATO: 0,
+    canceladoBRI: 0,
+    badCall: 0,
+    retidos: 0,
+    PrePago: 0
+  }
+
+  function handleChange(_event: React.MouseEvent<HTMLElement>, canceledValue: string) {
     setTypeCall(canceledValue)
     console.log(canceledValue)
   }
-  function handleChangeCanceled(_event: React.MouseEvent<HTMLElement>, canceledType:string) {
+  function handleChangeCanceled(_event: React.MouseEvent<HTMLElement>, canceledType: string) {
     setTypeCanceled(canceledType)
     console.log(canceledType)
   }
-  function handleChangeInfo(event:{target:{value:string}}) {
+  function handleChangeInfo(event: { target: { value: string } }) {
     setInfo(event.target.value)
     console.log(info)
   }
 
+  function countCall(type:string){
+    switch (type) {
+      case 'RETIDO':
+         const retidos = calls.filter(call =>{
+          const quantity = call.typeCall ==='RETIDO'
+          return console.log(quantity.length)
+         })
+         
+        break;
+      case 'BADCALL':
+        
+        break;
+      case 'CANCELADO COMODATO':
+        
+        break;
+      case 'CANCELADO BRI':
+        
+        break;
+      case 'PRE PAGO':
+        
+        break;
+    
+      default:
+        break;
+    }
   
-  function registerCall(){
-   const register: Register = { 
-    typeCall: typeCall,
-    typeCanceled: typeCanceled,
-    info: info
-   }
-   setCalls(prevCall => [...prevCall, register])
-   countCall()
+
+  function registerCall() {
+    const register: Register = {
+      typeCall: typeCall,
+      typeCanceled: typeCanceled,
+      info: info
+    }
+    setCalls(prevCall => [...prevCall, register])
+    countCall(register.typeCall)
   }
 
-  function countCall(){
-    calls.map(call => {
-     
-     })
-  }
-return(
-  <ChartsContext.Provider value={{typeCall,
-  typeCanceled, info, handleChangeCanceled, 
-   handleChange, handleChangeInfo, registerCall, 
-   calls,canceladoBRI,prePagos,
-   canceladoCOMODATO,retidos,badCall}}>
-  {props.children}
-  </ChartsContext.Provider>
-)
+
+  return (
+    <ChartsContext.Provider value={{
+      typeCall,
+      typeCanceled, info, handleChangeCanceled,
+      handleChange, handleChangeInfo, registerCall,
+      calls
+    }}>
+      {props.children}
+    </ChartsContext.Provider>
+  )
 }
