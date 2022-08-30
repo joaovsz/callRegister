@@ -28,9 +28,9 @@ const {
       >
         <ToggleButton value="RETIDO">Retido</ToggleButton>
         <ToggleButton value="BADCALL">BadCall</ToggleButton>
-        <ToggleButton value="PRE PAGO">Pré-pago</ToggleButton>
-        <ToggleButton value="CANCELADO BRI">Cancelado BRI</ToggleButton>
-        <ToggleButton value="CANCELADO COMODATO">Cancelado COMODATO</ToggleButton>
+        <ToggleButton value="PRE_PAGO">Pré-pago</ToggleButton>
+        <ToggleButton value="CANCELADO_BRI">Cancelado BRI</ToggleButton>
+        <ToggleButton value="CANCELADO_COMODATO">Cancelado COMODATO</ToggleButton>
       </ToggleButtonGroup>
       <h2>Motivo do Cancelamento</h2>
       <ToggleButtonGroup

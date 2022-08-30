@@ -10,8 +10,6 @@ import { useContext } from 'react';
 
 export const List = () => {
 const {calls} = useContext(ChartsContext)
-
-
   
   return (
     <div id="tableInfo">
