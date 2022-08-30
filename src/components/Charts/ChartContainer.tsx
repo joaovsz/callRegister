@@ -4,17 +4,21 @@ import { ChartsContext } from "../context/chart_context";
 import "../sass/charts.sass"
 
 
-
 export const ChartContainer = () => {
+const {retidos, 
+  canceladoCOMODATO, canceladoBRI, 
+  badCall, PrePago} = useContext(ChartsContext)
 
-  const data = [
+ const data = [
     ["Task", "Hours per Day"],
-    ["Retido", 2],
-    ["Badcall", 2],
-    ["Cancelado BRI", 2],
-    ["Cancelado Comodato", 2],
-    ["Pré Pago", 2],
+    ["Retido", retidos],
+    ["Badcall", badCall],
+    ["Cancelado BRI",canceladoBRI ],
+    ["Cancelado Comodato", canceladoCOMODATO],
+    ["Pré Pago", PrePago],
   ];
+
+ 
   
   const typeCall = { 
     title: "Tipo da chamada",
