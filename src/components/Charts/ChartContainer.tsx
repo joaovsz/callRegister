@@ -22,6 +22,7 @@ const {retidos,
   
   const typeCall = { 
     title: "Tipo da chamada",
+    pieSliceText: "label",
     colors: ['#7DCE13', '#EAE509','#EF5B0C', '#990000', '#3B44F6']
   }
   const typeCancelamento = { 
@@ -31,7 +32,7 @@ const {retidos,
   return (
     <>
     <div id="charts">
-
+{/* 
     <Chart
       chartType="PieChart"
       data={data}
@@ -39,7 +40,7 @@ const {retidos,
       width={"100%"}
       height={"400px"}
       
-      />
+      /> */}
     <Chart
       chartType="PieChart"
       data={data}
