@@ -6,11 +6,11 @@
   padding-left: $padding
   padding-right: $padding
 
-@mixin flexColumn($padding)
+@mixin flexColumn($padding, $justify, $align)
   display: flex
   flex-direction: column
-  justify-content: space-evenly
-  align-items: left
+  justify-content: $justify
+  align-items: $align
   gap:.8rem
   padding-top: $padding
   padding-bottom: $padding

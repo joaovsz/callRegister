@@ -2,38 +2,80 @@
 @import mixins.sass
 
 main
- 
-  color: $background
-  
+  color: $text-contrast
   width: 100vw
-  height: 50vh
-  gap: 1.5rem
-  display: flex
-  align-items: center
-  justify-content: space-between
-  
-  #tableInfo
+  height: 100vh
+  @include flexColumn(0, flex-start, left)
+
+  #register
+    width: 100vw
+    gap: 3rem
+    @include flexRow(1rem)
+
+  #results 
+    .quantity
+      font-size: 2.5rem
+    #table-result
+      font-weight: bold
+      font-size: 1.2rem
+      display: grid
+      margin-top:1rem
+      width: 42rem
+      height:15vw
+      position: absolute
+      left:4rem
+      margin-left: 1rem
+      border-radius: .7rem
+      grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: repeat(2, 1fr)
+      grid-column-gap: 0px
+      grid-row-gap: 0px
     
-    @include flexColumn(0)
-    width:60%
+    #chart
+      position: absolute
+      right:4rem
+    
+    #atendidas
+      border-top-left-radius: 1rem
+      border-bottom-left-radius: 1rem
+      @include flexColumn(0, center, center)
+      background: $gray-navy
+      color: $text
+      grid-area: 1 / 1 / 3 / 2
+
+    #cancelados
+      border-top-right-radius: 1rem
+      @include flexColumn(0, center, center)
+      background: $blue
+      color: $text
+      grid-area: 1 / 2 / 2 / 3
+      
+    #taxa
+      border-bottom-right-radius: 1rem
+      @include flexColumn(0, center, center)
+      background: $ciano
+      color: $text-contrast
+      grid-area: 2 / 2 / 3 / 3
+
+  #tableInfo
+    @include flexColumn(0, flex-start, center)
+    width: 60%
     height: 26rem
     margin-right: 4rem
 
     .MuiPaper-root
-      height:26rem
-      background: $background
+      height: 26rem
+      border:.2rem $gray-navy solid
       border-radius: 1rem
       padding: 0.5rem
-      .MuiTable-root  
-        height:100%
+      .MuiTable-root
+        height: 100%
 
       .MuiTableHead-root tr th
         font-weight: bold
         font-size: 1.2rem
-        color: $white-bg
+        color: $text-contrast
       .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root
         font-size: 1.2rem
         font-weight: 300
-        color: $white-bg
-
-              
+        color: $text-contrast
