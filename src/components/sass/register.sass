@@ -4,36 +4,38 @@
 main
   color: $text-contrast
   width: 100vw
-  height: 100vh
+  height: calc(100vh - 4rem)
   @include flexColumn(0, flex-start, left)
 
   #register
-    width: 100vw
+    width: calc(100% - 8rem)
+    height: 50vh
     gap: 3rem
-    @include flexRow(1rem)
+    margin:0 4rem 0 4rem
+    @include flexRow(0)
 
   #results 
+    @include flexRow(0)
+    width: calc(100% - 8rem)
+    // gap: 3rem
+    margin: 0 4rem 0 4rem
+    height: calc(50vh - 4rem)
+    
+   
     .quantity
       font-size: 2.5rem
     #table-result
       font-weight: bold
       font-size: 1.2rem
       display: grid
-      margin-top:1rem
-      width: 42rem
+      width: calc(35% + 3.8rem)
       height:15vw
-      position: absolute
-      left:4rem
-      margin-left: 1rem
       border-radius: .7rem
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: repeat(2, 1fr)
       grid-column-gap: 0px
       grid-row-gap: 0px
     
-    #chart
-      position: absolute
-      right:4rem
     
     #atendidas
       border-top-left-radius: 1rem
@@ -59,14 +61,14 @@ main
 
   #tableInfo
     @include flexColumn(0, flex-start, center)
-    width: 60%
+    width: calc(65% - 4.8rem)
     height: 26rem
-    margin-right: 4rem
+    // padding-right: 4rem
 
     .MuiPaper-root
       height: 26rem
       border:.2rem $gray-navy solid
-      border-radius: 1rem
+      // border-radius: 1rem
       padding: 0.5rem
       .MuiTable-root
         height: 100%
@@ -75,6 +77,7 @@ main
         font-weight: bold
         font-size: 1.2rem
         color: $text-contrast
+        
       .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root
         font-size: 1.2rem
         font-weight: 300
