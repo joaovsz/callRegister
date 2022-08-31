@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { ChartsContext } from '../context/chart_context'
-import { ChartContainer } from './ChartContainer'
+import { Chart_container } from './Chart_container'
 
 export const Day_Results = () => {
  
@@ -34,7 +34,7 @@ export const Day_Results = () => {
         
       </div>
      <div id="chart">
-        <ChartContainer/>
+        <Chart_container/>
       </div> 
       </section> 
       

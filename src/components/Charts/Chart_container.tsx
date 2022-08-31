@@ -4,7 +4,7 @@ import { ChartsContext } from "../context/chart_context";
 import "../sass/charts.sass"
 
 
-export const ChartContainer = () => {
+export const Chart_container = () => {
 const {retidos, 
   canceladoCOMODATO, canceladoBRI, 
   badCall, PrePago} = useContext(ChartsContext)
