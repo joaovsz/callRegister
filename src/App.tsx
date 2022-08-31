@@ -1,7 +1,7 @@
 import { Header } from "./components/Header/Header"
 import '../src/components/sass/global.sass'
 import { Register } from "./components/Register/Register"
-import { ChartContainer } from "./components/Charts/ChartContainer"
+import { Chart_container } from "./components/Charts/Chart_container"
 function App() {
 
   return (

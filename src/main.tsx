@@ -9,6 +9,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ChartProvider>
     <App />
     </ChartProvider>
-    
+  
   </React.StrictMode>
 )
