@@ -1,9 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ChartsContext } from '../context/chart_context'
 import { ChartContainer } from './ChartContainer'
 
 export const Day_Results = () => {
-  const {calls, canceladoCOMODATO, canceladoBRI, taxa} = useContext(ChartsContext)
+ 
+  const {calls,taxa, 
+  totalCanceled, calcularTaxa} = useContext(ChartsContext)
+  useEffect(()=>{
+    calcularTaxa(totalCanceled)
+  },[totalCanceled, calls])
+
   return (
     <>
     <section id="results">
@@ -13,12 +19,13 @@ export const Day_Results = () => {
           Total de Cancelados
           </span> 
         <span className="quantity">
-          {canceladoBRI+canceladoCOMODATO}
+          {totalCanceled}
           </span> 
           </div>
           <div id="taxa">
           <span>Taxa de Cancelamento</span>
-          <span className="quantity">{(taxa).toFixed(2)}%</span>
+          <span className="quantity">{isNaN(taxa)?"0.00":(taxa).toFixed(2)}%</span>
+
         </div>
         <div id="atendidas">
           <span>Total de Atendidas</span>
@@ -34,3 +41,5 @@ export const Day_Results = () => {
       </>
   )
 }
+
+

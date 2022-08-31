@@ -27,7 +27,8 @@ const {retidos,
   }
   const typeCancelamento = { 
     title: "Motivo do cancelamento",
-    colors: ['#7DCE13', '#EAE509','#EF5B0C', '#990000', '#3B44F6']
+    pieHole: 0.5,
+    colors: ['#2B4865', '#256D85','#8FE3CF', '#990000', '#808080']
   }
   return (
     <>
@@ -40,13 +41,13 @@ const {retidos,
       width={"100%"}
       height={"400px"}
       
-      /> */}
+      /> */} 
     <Chart
       chartType="PieChart"
       data={data}
       options={typeCancelamento}
       width={"100%"}
-      height={"400px"}
+      height={"15vw"}
       />
       </div>
     </>
