@@ -12,9 +12,9 @@ export const Register = () => {
     <main>
       <section id="register">
       <Form/>
-      <List/>
-      </section>
       <Day_Results/>
+      </section>
+      <List/>
     </main>
      
   )

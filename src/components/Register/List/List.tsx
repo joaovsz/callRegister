@@ -27,6 +27,16 @@ const {calls} = useContext(ChartsContext)
         <TableBody>
           {calls.map((row, index) => (
             <TableRow
+              className={
+              row.typeCall==='RETIDO'
+              ?'RETIDO'
+              :row.typeCall==="BADCALL"
+              ?'BADCALL'
+              :row.typeCall==="PRE_PAGO"
+              ?'PREPAGO'
+              :row.typeCall==="CANCELADO_BRI"
+              ?"CANCELADO"
+              :'CANCELADO'}
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >

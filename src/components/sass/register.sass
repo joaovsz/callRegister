@@ -6,37 +6,36 @@ main
   width: 100vw
   height: calc(100vh - 4rem)
   @include flexColumn(0, flex-start, left)
-
+  overflow: auto
   #register
     width: calc(100% - 8rem)
     height: 50vh
     gap: 3rem
-    margin:0 4rem 0 4rem
+    margin: 0 4rem 0 4rem
     @include flexRow(0)
 
-  #results 
+  #results
     @include flexRow(0)
-    width: calc(100% - 8rem)
-    // gap: 3rem
-    margin: 0 4rem 0 4rem
+    width: 50%
+    gap: 3rem
     height: calc(50vh - 4rem)
-    
-   
+
     .quantity
       font-size: 2.5rem
+
     #table-result
       font-weight: bold
       font-size: 1.2rem
       display: grid
-      width: calc(35% + 3.8rem)
-      height:15vw
+      width: 100%
+      height: 100%
+
       border-radius: .7rem
       grid-template-columns: repeat(2, 1fr)
       grid-template-rows: repeat(2, 1fr)
       grid-column-gap: 0px
       grid-row-gap: 0px
-    
-    
+
     #atendidas
       border-top-left-radius: 1rem
       border-bottom-left-radius: 1rem
@@ -51,7 +50,7 @@ main
       background: $blue
       color: $text
       grid-area: 1 / 2 / 2 / 3
-      
+
     #taxa
       border-bottom-right-radius: 1rem
       @include flexColumn(0, center, center)
@@ -61,24 +60,27 @@ main
 
   #tableInfo
     @include flexColumn(0, flex-start, center)
-    width: calc(65% - 4.8rem)
-    height: 26rem
-    // padding-right: 4rem
+    width: calc(100% - 8rem)
+    margin: auto
+    padding: 0 0 2rem 0
 
     .MuiPaper-root
-      height: 26rem
-      border:.2rem $gray-navy solid
-      // border-radius: 1rem
+      border: .2rem $gray-navy solid
       padding: 0.5rem
       .MuiTable-root
+        
         height: 100%
 
       .MuiTableHead-root tr th
         font-weight: bold
         font-size: 1.2rem
         color: $text-contrast
-        
+            
       .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root
         font-size: 1.2rem
         font-weight: 300
         color: $text-contrast
+
+      .MuiTableRow-root.RETIDO
+        color: $ciano
+        

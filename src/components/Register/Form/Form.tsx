@@ -14,6 +14,7 @@ const {
   handleChange, 
   handleChangeCanceled,
   handleChangeInfo,
+  info,
   registerCall} = useContext(ChartsContext)
   
   return (
@@ -47,7 +48,7 @@ const {
         <ToggleButton value="AGENDAMENTO">Sem Agendamento</ToggleButton>
       </ToggleButtonGroup>
       <h3>Telefone para contato</h3>
-      <TextField id="outlined-basic" onChange={handleChangeInfo}placeholder="62999999999" variant="outlined" />
+      <TextField id="outlined-basic" onChange={handleChangeInfo}placeholder="62999999999" variant="outlined" value={info}/>
       <Button 
       onClick={registerCall}
       variant="contained" 

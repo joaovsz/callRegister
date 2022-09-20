@@ -33,9 +33,9 @@ export const Day_Results = () => {
           </div>
         
       </div>
-     <div id="chart">
+     {/* <div id="chart">
         <Chart_container/>
-      </div> 
+      </div>  */}
       </section> 
       
       </>
