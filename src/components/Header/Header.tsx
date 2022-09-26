@@ -1,11 +1,23 @@
+import { useEffect } from "react";
 import "../sass/header.sass"
 
-
 export const Header = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const day = date.getDay();
-  const month = date.getMonth();
+  useEffect(() => {
+    getDate()
+  }, [])
+
+  function getDate(){
+    const date = new Date();
+    const year = String(date.getFullYear());
+    const day = String(date.getDay()).padStart(2, '0');
+    const month = String(date.getMonth()).padStart(2, '0');
+    const allDate = `${day}/${month}/${year}`
+    console.log(allDate);
+      return allDate
+  }
+
+  const date = getDate()
+
 
   return (
     <header id="header">
@@ -16,7 +28,9 @@ export const Header = () => {
       <span>Total de Cancelados: </span>
       <span>86</span> */}
       </div>
-      <span>{day+"/"+month+"/"+year}</span>
+      <span>{date}</span>
     </header>
   )
 }
+
+
