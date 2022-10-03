@@ -123,7 +123,8 @@ export function ChartProvider(props: any) {
   }
 
   function registerCall() {
-    setCalls(prevCall => [...prevCall, register])
+    typeCall?setCalls(prevCall => [...prevCall, register]):alert("Preencha o tipo da chamada")
+    
     
   }
 
