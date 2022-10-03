@@ -30,6 +30,7 @@ const {retidos,
     pieHole: 0.3,
     colors: ['#2B4865', '#256D85','#8FE3CF', '#990000', '#808080']
   }
+  
   return (
     <>
     <div id="charts">
