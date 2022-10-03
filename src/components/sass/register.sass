@@ -2,85 +2,77 @@
 @import mixins.sass
 
 main
-  color: $text-contrast
+  color: $black
   width: 100vw
   height: calc(100vh - 4rem)
   @include flexColumn(0, flex-start, left)
   overflow: auto
   #register
     width: calc(100% - 8rem)
-    height: 50vh
+    height: 40%
     gap: 3rem
-    margin: 0 4rem 0 4rem
+    margin: 2rem 4rem 0 4rem
     @include flexRow(0)
 
   #results
-    @include flexRow(0)
-    width: 50%
-    gap: 3rem
-    height: calc(50vh - 4rem)
-
+    width: 40%
+    background: $white-bg
+    border-radius: 2rem
+    padding: 2rem
+    height: 95%
     .quantity
+      
       font-size: 2.5rem
 
     #table-result
+      @include flexColumn(1rem, space-around, center)
       font-weight: bold
       font-size: 1.2rem
-      display: grid
       width: 100%
       height: 100%
-
-      border-radius: .7rem
-      grid-template-columns: repeat(2, 1fr)
-      grid-template-rows: repeat(2, 1fr)
-      grid-column-gap: 0px
-      grid-row-gap: 0px
+      
 
     #atendidas
-      border-top-left-radius: 1rem
-      border-bottom-left-radius: 1rem
-      @include flexColumn(0, center, center)
-      background: $gray-navy
-      color: $text
-      grid-area: 1 / 1 / 3 / 2
+      width: 100%
+      
+      @include flexRow(0)
+      color: $dark-purple
+      
 
     #cancelados
-      border-top-right-radius: 1rem
-      @include flexColumn(0, center, center)
-      background: $blue
-      color: $text
-      grid-area: 1 / 2 / 2 / 3
+      @include flexRow(0)
+      
+      width: 100%
+      color: $purple
+      
 
     #taxa
-      border-bottom-right-radius: 1rem
-      @include flexColumn(0, center, center)
-      background: $ciano
-      color: $text-contrast
-      grid-area: 2 / 2 / 3 / 3
+      @include flexRow(0) 
+      width: 100%
+      color: $blue
+      
 
   #tableInfo
     @include flexColumn(0, flex-start, center)
-    width: calc(100% - 8rem)
+    width: 60%
     margin: auto
     padding: 0 0 2rem 0
 
     .MuiPaper-root
-      border: .2rem $gray-navy solid
+      border: .2rem $raisin-black solid
       padding: 0.5rem
       .MuiTable-root
-        
         height: 100%
 
       .MuiTableHead-root tr th
         font-weight: bold
         font-size: 1.2rem
-        color: $text-contrast
-            
+        color: $black
+
       .MuiTableBody-root .MuiTableRow-root .MuiTableCell-root
         font-size: 1.2rem
         font-weight: 300
-        color: $text-contrast
+        color: $raisin-black
 
       .MuiTableRow-root.RETIDO
-        color: $ciano
-        
+        color: $blue

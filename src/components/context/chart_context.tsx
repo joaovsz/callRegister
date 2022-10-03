@@ -1,3 +1,4 @@
+import { SelectChangeEvent } from "@mui/material/Select";
 import { createContext, useEffect, useState } from "react";
 import { Register } from "../types/context";
 
@@ -16,7 +17,7 @@ interface chartContexts {
   totalCanceled:number,
   calls: Register[],
   handleChange: (e: any, canceledValue: string) => void,
-  handleChangeCanceled: (e: any, typeCanceled: string) => void,
+  handleChangeCanceled: (e: SelectChangeEvent) => void,
   handleChangeInfo: (e: { target: { value: string } }) => void,
   registerCall: () => void,
   calculateCalls: (type: string) => void,
@@ -75,9 +76,9 @@ export function ChartProvider(props: any) {
     setTypeCall(canceledValue)
     console.log(canceledValue)
   }
-  function handleChangeCanceled(_event: React.MouseEvent<HTMLElement>, canceledType: string) {
-    setTypeCanceled(canceledType)
-    console.log(canceledType)
+  function handleChangeCanceled(event: SelectChangeEvent) {
+    setTypeCanceled(event.target.value)
+    console.log(typeCanceled)
   }
   function handleChangeInfo(event: { target: { value: string } }) {
     setInfo(event.target.value)

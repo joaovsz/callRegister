@@ -2,17 +2,57 @@
 @import mixins.sass
 
 #registerCall
-  width: calc(35% + 4.8rem)
-  height: 30rem
-  // margin-left:4rem
-  @include flexColumn(2rem, space-evenly, left)
+  width: 55%
+  height: 100%
+  padding-right: 2rem
+  @include flexColumn(0, flex-start, none)
 
+  .selectCall
+    border-radius: 1rem 
+    height: 10rem
+    @include flexRow(0)
+    span
+      width: 100%
+      @include flexColumn(0, center, left)
+      .MuiToggleButtonGroup-root
+        width: 100%
+    h2
+      margin-bottom: 1rem
+      
   #registerButton
-    width:100%
+    position: relative
+    right: -80%
+    font-family: 'Poppins'
+    font-weight: 400
+    font-size: 1rem
+    width:20%
+    height: 100%
+    border-radius: 1rem
+    background: $purple
       
   .MuiButtonBase-root
+    padding:0                                      
     color: $white-bg
-    background-color: $dark-navy
-  .Mui-selected
-    color: $dark-navy
-    background-color: $ciano
+    width: 100%
+    border: none
+    
+
+    .MuiFormControl-root
+      color: $white-bg
+      width: 100%
+      
+      .MuiInputBase-root
+        height: 3.8rem
+        color: $purple
+       
+.info
+  width: 100%
+  @include flexColumn(0, space-between, left )
+  height:10rem 
+  
+  .MuiFormControl-root
+    margin-top: .3rem
+    width: 100%
+    #outlined-basic
+      width: 100% 
+      
