@@ -28,7 +28,7 @@ export const Header = () => {
       <span>Total de Cancelados: </span>
       <span>86</span> */}
       </div>
-      <span>Dashboard</span>
+      {/* <span>Dashboard</span> */}
       <span>{date}</span>
     </header>
   )
