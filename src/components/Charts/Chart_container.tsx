@@ -11,10 +11,10 @@ const {retidos,
 
  const data = [
     ["Task", "Hours per Day"],
-    ["Retido", retidos],
+    ["Retidos", retidos],
     ["Badcall", badCall],
-    ["Cancelado BRI",canceladoBRI ],
-    ["Cancelado Comodato", canceladoCOMODATO],
+    ["Cancelados BRI",canceladoBRI ],
+    ["Cancelados Comodato", canceladoCOMODATO],
     ["Pré Pago", PrePago],
   ];
 
