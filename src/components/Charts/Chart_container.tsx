@@ -24,12 +24,12 @@ const {retidos,
     title: "Tipo da chamada",
     pieSliceText: "label",
     pieHole: 0.4,
-    colors: ['#7DCE13', '#EAE509','#EF5B0C', '#990000', '#3B44F6']
+    colors: ['#38E54D', '#002B5B','#FFD24C', '#30292F', '#3B44F6']
   }
   const typeCancelamento = { 
     title: "Motivo do cancelamento",
     pieHole: 0.3,
-    colors: ['#2B4865', '#256D85','#8FE3CF', '#990000', '#808080']
+    colors: ['#2B4865', '#002B5B','#002B5B', '#990000', '#355691']
   }
   
   return (
@@ -37,6 +37,8 @@ const {retidos,
    {calls.length>0?<Chart
       chartType="PieChart"
       data={data}
+      width={"100%"}
+      height={"100%"}
       options={typeCall}
       />:<h2 className="alertInit chart">
         Sem registros no momento

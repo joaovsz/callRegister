@@ -115,9 +115,9 @@ export const Form = () => {
               label="Cancelado BRI"
               onChange={handleChangeCanceled}
               >
-              <MenuItem value="Insatisfação Geral">Insatisfação Geral</MenuItem>
+              <MenuItem value="Insatisfação Geral ">Insatisfação Geral</MenuItem>
               <MenuItem value="Preço Alto ">Preço Alto</MenuItem>
-              <MenuItem value="Venda Indevida">Venda Indevida</MenuItem>
+              <MenuItem value="Venda Indevida ">Venda Indevida</MenuItem>
               <MenuItem value="Problema Técnico">Problema Técnico</MenuItem>
               <MenuItem value="Venda do Equipamento">Venda do Equipamento</MenuItem>
               <MenuItem value="Fatura Cheia">Fatura Cheia</MenuItem>
