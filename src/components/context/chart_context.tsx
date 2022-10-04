@@ -70,6 +70,7 @@ export function ChartProvider(props: any) {
     setTypeCall('')
     setTypeCanceled('')
     setInfo('')
+    
   }, [calls])
 
   function handleChange(_event: React.MouseEvent<HTMLElement>, canceledValue: string) {

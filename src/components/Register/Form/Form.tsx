@@ -38,9 +38,9 @@ export const Form = () => {
     registerCall } = useContext(ChartsContext)
 
   return (
-    <form id="registerCall">
-      <div className='selectCall'>
       <ThemeProvider theme={theme}>
+    <form  id="registerCall">
+      <div className='selectCall'>
       <span>
       
       <h2>Tipo da chamada</h2>
@@ -51,7 +51,9 @@ export const Form = () => {
         color="primary"
         aria-label="Platform"
         >
-        <ToggleButton value="RETIDO">
+        <ToggleButton 
+        tabIndex={1}
+        value="RETIDO">
           <FormControl>
             <InputLabel id="Retido">Retido</InputLabel>
             <Select
@@ -144,7 +146,7 @@ export const Form = () => {
         </ToggleButton>
       </ToggleButtonGroup>
       </span>
-      </ThemeProvider>
+      
       </div>
       <div className="info">
       <div>
@@ -159,6 +161,7 @@ export const Form = () => {
         </div>
         <Divider />
     </form>
+    </ThemeProvider>
   )
 }
 

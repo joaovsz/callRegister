@@ -22,7 +22,6 @@ const {retidos,
   
   const typeCall = { 
     title: "Tipo da chamada",
-    pieSliceText: "label",
     pieHole: 0.4,
     colors: ['#38E54D', '#002B5B','#FFD24C', '#30292F', '#3B44F6']
   }
