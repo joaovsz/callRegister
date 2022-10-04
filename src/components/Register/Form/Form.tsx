@@ -61,10 +61,12 @@ export const Form = () => {
               label="Retido"
               onChange={handleChangeCanceled}
             >
-              <MenuItem value="PREÇO ALTO">Preço Alto</MenuItem>
-              <MenuItem value="INSATISFAÇÃO GERAL">Insatisfação Geral</MenuItem>
-              <MenuItem value="RETIDO COM MULTA">Retido com multa</MenuItem>
-              <MenuItem value="FICOU DE PENSAR">Ficou de pensar</MenuItem>
+              <MenuItem value="Preço Alto">Preço Alto</MenuItem>
+              <MenuItem value="Insatisfação Geral">Insatisfação Geral</MenuItem>
+              <MenuItem value="Venda Indevida">Venda Indevida</MenuItem>
+              <MenuItem value="Retido com multa">Retido com multa</MenuItem>
+              <MenuItem value="Ficou de Pensar">Ficou de pensar</MenuItem>
+              <MenuItem value="Retido com serviço">Retido com serviço</MenuItem>
             </Select>
           </FormControl>
         </ToggleButton>
@@ -81,7 +83,9 @@ export const Form = () => {
               <MenuItem value="Serviços e Informações">Serviços e Informações</MenuItem>
               <MenuItem value="Remoção de Ponto Ad.">Ponto Adicional</MenuItem>
               <MenuItem value="Tv Já Cancelada">Tv Já Cancelada</MenuItem>
+              <MenuItem value="Canal Oi!">Canal Oi!</MenuItem>
               <MenuItem value="Ligação Caiu">Ligação Caiu</MenuItem>
+              <MenuItem value="Titular não estava presente">Titular não estava presente</MenuItem>
             </Select>
           </FormControl>
         </ToggleButton>
@@ -112,10 +116,11 @@ export const Form = () => {
               onChange={handleChangeCanceled}
               >
               <MenuItem value="Insatisfação Geral">Insatisfação Geral</MenuItem>
-              <MenuItem value="Preço Alto">Preço Alto</MenuItem>
+              <MenuItem value="Preço Alto ">Preço Alto</MenuItem>
               <MenuItem value="Venda Indevida">Venda Indevida</MenuItem>
-              <MenuItem value="Fatura Cheia">Fatura Cheia</MenuItem>
+              <MenuItem value="Problema Técnico">Problema Técnico</MenuItem>
               <MenuItem value="Venda do Equipamento">Venda do Equipamento</MenuItem>
+              <MenuItem value="Fatura Cheia">Fatura Cheia</MenuItem>
             </Select>
           </FormControl>
         </ToggleButton>
@@ -129,7 +134,9 @@ export const Form = () => {
               label="Cancelado BRI"
               onChange={handleChangeCanceled}
               >
+              <MenuItem value=" Preço Alto">Preço Alto</MenuItem>
               <MenuItem value="Sem Agendamento">Sem Agendamento</MenuItem>
+              <MenuItem value="MUDEND">Mudança de Endereço</MenuItem>
               <MenuItem value="Problema com Fatura">Problema com Fatura</MenuItem>
               <MenuItem value="Desmembrado">Desmembrado</MenuItem>
             </Select>

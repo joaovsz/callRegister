@@ -14,6 +14,7 @@ export const Day_Results = () => {
     <>
     <section id="results">
       <div id="table-result">
+          <span>Resultado Diário</span>
         <div id="atendidas">
           <span>Total de Atendidas</span>
           <span className="quantity">{calls.length}</span>

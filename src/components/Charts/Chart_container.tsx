@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { ChartsContext } from "../context/chart_context";
-import "../sass/charts.sass"
+import "../sass/register.sass"
 
 
 export const Chart_container = () => {
 const {retidos, 
   canceladoCOMODATO, canceladoBRI, 
-  badCall, PrePago} = useContext(ChartsContext)
+  badCall, PrePago, calls} = useContext(ChartsContext)
 
  const data = [
     ["Task", "Hours per Day"],
@@ -23,6 +23,7 @@ const {retidos,
   const typeCall = { 
     title: "Tipo da chamada",
     pieSliceText: "label",
+    pieHole: 0.4,
     colors: ['#7DCE13', '#EAE509','#EF5B0C', '#990000', '#3B44F6']
   }
   const typeCancelamento = { 
@@ -33,16 +34,14 @@ const {retidos,
   
   return (
     <>
-    <div id="charts">
-{/* 
-    <Chart
+   {calls.length>0?<Chart
       chartType="PieChart"
       data={data}
       options={typeCall}
-      width={"100%"}
-      height={"400px"}
+      />:<h2 className="alertInit chart">
+        Sem registros no momento
+        </h2>}
       
-      /> */} 
     {/* <Chart
       chartType="PieChart"
       data={data}
@@ -50,7 +49,6 @@ const {retidos,
       width={"100%"}
       height={"15vw"}
       /> */}
-      </div>
     </>
   )
 }

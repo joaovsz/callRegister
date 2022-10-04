@@ -7,13 +7,17 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { ChartsContext } from '../../context/chart_context';
 import { useContext } from 'react';
+import { Chart_container } from '../../Charts/Chart_container';
 
 export const List = () => {
 const {calls} = useContext(ChartsContext)
-  
-  return (
-    <div id="tableInfo">
+
+return (
+  <div id="tableInfo">
+      <div id='tabela'>
+
       <h2>Histórico de chamadas</h2>
+      
       <TableContainer component={Paper} >
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
@@ -24,10 +28,10 @@ const {calls} = useContext(ChartsContext)
            
           </TableRow>
         </TableHead>
-        <TableBody>
+        {calls.length>0?        <TableBody>
           {calls.map((row, index) => (
             <TableRow
-              className={
+            className={
               row.typeCall==='RETIDO'
               ?'RETIDO'
               :row.typeCall==="BADCALL"
@@ -39,7 +43,7 @@ const {calls} = useContext(ChartsContext)
               :'CANCELADO'}
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
+              >
               <TableCell component="th" scope="row">
                 {row.typeCall}
               </TableCell>
@@ -48,9 +52,14 @@ const {calls} = useContext(ChartsContext)
               <TableCell align="right">{row.info}</TableCell>
             </TableRow>
           ))}
-        </TableBody >
+        </TableBody >:<h2 className="alertInit"> Sem registros no momento</h2>
+}
       </Table>
-    </TableContainer>
+      </TableContainer>
+      </div>
+      <div id='chart'>
+        <Chart_container/>
+      </div>
     </div>
   )
 }

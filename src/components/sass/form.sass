@@ -4,19 +4,25 @@
 #registerCall
   width: 55%
   height: 25rem
-  padding-right: 2rem
-  @include flexColumn(0, space-between, none)
+  border-radius: 2rem
+  padding: 2rem
+  background: $gray-light
+  @include flexColumn(2rem, flex-start, none)
 
   .selectCall
     border-radius: 1rem 
     height: 10rem
-    @include flexRow(0)
+    // @include flexRow(0)
+    
     span
       width: 100%
+      
       @include flexColumn(0, center, left)
       .MuiToggleButtonGroup-root
+        
         width: 100%
     h2
+      
       margin-bottom: 1rem
       
   #registerButton
@@ -28,7 +34,7 @@
     width:20%
     height: 100%
     border-radius: 1rem
-    background: $purple
+    background: $green
       
   .MuiButtonBase-root
     padding:0                                      
@@ -54,5 +60,6 @@
     margin-top: .3rem
     width: 100%
     #outlined-basic
+      
       width: 100% 
       
