@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Dashboard } from "../Dashboard/Dashboard";
 import "../sass/header.sass"
 
 export const Header = () => {
