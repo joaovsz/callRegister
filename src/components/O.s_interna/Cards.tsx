@@ -2,6 +2,7 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, crea
 import { Mascaras } from '../types/mascaras'
 import { matrizDB } from "./mascaras"
 import copy from "copy-to-clipboard"
+
 import "../sass/matrizes.sass"
 const Cards = () => {
   const theme = createTheme({
@@ -24,7 +25,8 @@ const Cards = () => {
     alert("Texto copiado")
   }
   return (
-    matrizDB.map((card: Mascaras, index: number) => (
+    <>
+    {matrizDB.map((card: Mascaras, index: number) => (
       <Card className={`card-${index} card-group`} >
         <CardActionArea>
           <CardContent>
@@ -46,8 +48,9 @@ const Cards = () => {
       </Card>
   )
   )
-  
-  )
+  }
+  </>)
 }
 
 export default Cards
+
