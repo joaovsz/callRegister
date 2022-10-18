@@ -15,7 +15,6 @@ const {calls} = useContext(ChartsContext)
 return (
   <div id="tableInfo">
       <div id='tabela'>
-
       <h2>Histórico de chamadas</h2>
       
       <TableContainer component={Paper} >

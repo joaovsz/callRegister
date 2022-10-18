@@ -159,7 +159,7 @@ export const Form = () => {
         disableElevation id="registerButton"
         >Registrar</Button>
         </div>
-        <Divider />
+        
     </form>
     </ThemeProvider>
   )
