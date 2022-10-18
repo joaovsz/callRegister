@@ -5,6 +5,7 @@ import { Dashboard } from "./components/Dashboard/Dashboard"
 import {  Route, Routes } from "react-router-dom"
 import Login from "./components/Login/Login"
 import Signup from "./components/Signup/Signup"
+import {Matrizes} from "./components/O.s_interna/Matrizes"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route element={<Signup />} path="/signup"/>
         <Route element={<Register />} path="/"/>
         <Route element={<Dashboard />} path="/dashboard" />
+        <Route element={<Matrizes />} path="/matrizes" />
       </Routes>
     </>
   )

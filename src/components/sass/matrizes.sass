@@ -1,0 +1,35 @@
+@import variables.sass
+@import mixins.sass
+
+.card-container
+  width: calc(100% - 8rem)
+  height: 94vh 
+  padding: 4rem 0 4rem 0
+  margin: auto
+  display: grid
+  align-items: center
+  grid-template-columns: repeat(3, 1fr)
+  grid-template-rows: repeat(3, 1fr)
+  grid-column-gap: 12px
+  grid-row-gap: 10px
+  .card-group
+    border: 1px solid $raisin-black
+    text-align: center
+    @include flexColumn(0, space-evenly, left)
+    height: 100%
+    // background: $blue
+    width: 100%
+  .card-0 
+    grid-area: 1 / 1 / 2 / 2 
+  .card-1 
+    grid-area: 1 / 2 / 2 / 3 
+  .card-2 
+    grid-area: 1 / 3 / 2 / 4 
+  .card-3  
+    grid-area: 2 / 1 / 3 / 2 
+  .card-4 
+    grid-area: 2 / 2 / 3 / 3 
+  .card-5  
+    grid-area: 2 / 3 / 3 / 4 
+  .card-6  
+    grid-area: 3 / 1 / 4 / 4 
