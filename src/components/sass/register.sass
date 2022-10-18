@@ -8,11 +8,13 @@ main
   overflow: auto
   #register
     border-radius: 1rem
-    border: 1px solid $gray-light
+    // border: 1px solid $gray-light
     width: calc(100% - 8rem)
     height: 25rem
     gap: 3rem
     margin: 2rem 4rem 0 4rem
+    -webkit-box-shadow: 3px 4px 15px -4px rgba(0,0,0,0.8)
+    box-shadow: 2px 4px 14px -2px #2e2e2ecc
     @include flexRow(0)
 
   #results
@@ -85,10 +87,7 @@ main
           font-size: 1.2rem
           font-weight: 300
           color: $black
-        .MuiTableRow-root
-          
-        .RETIDO
-          
+       
       
       #chart 
         width: 100%
