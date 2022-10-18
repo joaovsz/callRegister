@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Dashboard } from "../Dashboard/Dashboard";
 import "../sass/header.sass"
 
 export const Header = () => {
@@ -22,13 +24,14 @@ export const Header = () => {
   return (
     <header id="header">
       <span>Registro de Chamadas</span>
-      <div id="counter">
-      {/* <span>Total de Chamadas Atendidas: </span>
-      <span>654 </span>
-      <span>Total de Cancelados: </span>
-      <span>86</span> */}
+      <div>
+     <nav className="navbar">
+      <Link to="/">Início</Link>
+      {/* <Link to="dashboard">Dashboard</Link> */}
+      <Link to="links">Links Úteis</Link>
+      <Link to="matrizes">O.S Interna</Link>
+      </nav> 
       </div>
-      {/* <span>Dashboard</span> */}
       <span>{date}</span>
     </header>
   )
