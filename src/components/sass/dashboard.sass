@@ -1,0 +1,50 @@
+@import variables.sass
+@import mixins.sass
+
+.container
+  @include flexRow(4rem)
+  width: 100vw 
+  height: 50vh
+  justify-content: center
+  
+  .month
+    width: 50%
+  #typecalls
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    grid-column-gap: 10px
+    grid-row-gap: 10px
+    width: calc(50% - 2rem)  
+    height: calc(100% - 2rem)  
+    .card-container
+      width: 100%
+      height: 100%
+      padding: 2rem
+      border-radius: 1rem
+      .card
+        @include flexRow(0)
+        width: 100%
+    #bri
+      background: rgb(255,210,76)
+      background: linear-gradient(180deg, rgba(255,210,76,1) 0%, rgba(255,220,115,1) 40%)
+    #comodato
+      color: $text
+      background-color: $black    
+    #prePago
+      color: $text
+      background-color: $blue  
+    #badCall
+      color: $text
+      background-color: #3B44F6
+.title
+  display: flex
+  justify-content: center
+  width: 100%
+  padding-top: 1rem
+  font-size: 1.5rem
+  text-align: center
+.subtitle
+  display: flex
+  justify-content: center
+  width: 100%   
