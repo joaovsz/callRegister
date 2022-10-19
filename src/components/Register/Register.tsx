@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider'
 export const Register = () => {
   
   return (
-    <main>
+    <main id="main-container">
       <section id="register">
       <Form/>
       <Divider orientation="vertical" variant="middle" flexItem />

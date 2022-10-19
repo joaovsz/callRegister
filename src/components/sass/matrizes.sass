@@ -1,10 +1,25 @@
 @import variables.sass
 @import mixins.sass
-
+#matrizes
+  background: $white-bg
+  width: 100vw
+  height: 100vh
+  margin: auto
+  #title-container
+    padding: 1rem 0 0 0
+    margin: auto
+    width: calc(90% - 8rem)
+    text-align: center
+    span
+      font-weight: thin
+      opacity: .6
+      font-size: 1.3rem
+  h1
+    font-size: 2rem
 .card-container
-  width: calc(100% - 8rem)
-  height: 94vh 
-  padding: 4rem 0 4rem 0
+  width: calc(90% - 8rem)
+  height: 80vh 
+  padding: 2rem 0 4rem 0
   margin: auto
   display: grid
   align-items: center
@@ -12,13 +27,27 @@
   grid-template-rows: repeat(3, 1fr)
   grid-column-gap: 12px
   grid-row-gap: 10px
+
   .card-group
-    border: 1px solid $raisin-black
+    box-shadow: 2px 4px 14px -2px #2e2e2ecc
+    // border: 1px solid $raisin-black
     text-align: center
-    @include flexColumn(0, space-evenly, left)
+    border-radius: 1.2rem
+    @include flexColumn(0, flex-start, left)
     height: 100%
-    // background: $blue
     width: 100%
+    .MuiCardActionArea-root
+      height: 100%
+    .MuiCardContent-root
+      text-align: left
+      margin: auto
+      width: 100%
+      h3
+        
+        font-size:1.3rem
+        padding: .5rem 0 1rem 0
+   
+   
   .card-0 
     grid-area: 1 / 1 / 2 / 2 
   .card-1 

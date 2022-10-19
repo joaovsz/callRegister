@@ -28,10 +28,7 @@ export const matrizDB: Mascaras[] = [
     descricao:"Solicitação de aplicação de desconto na fatura de cliente que está no cenário: Desconhece migração para Pacote Pago",
     opcao:`Quando o cliente solicitar cancelamento pelo motivo relacionado em público alvo. 
     Consulte o procedimento em RECEP. TV> Orientações Cliente BRI > Desconhece migração para Pacote Pago`,
-    mascara: `"Cliente atendido conforme processo Desconhece Migração para Pacote Pago, concedida a correção: 
-    Vencimento://2022, Valor total da fatura vencida R$:________, Valor do desconto R$ ________
-    Vencimento://2022, Valor total da fatura a vencer R$:________, Valor do desconto R$ ________
-    Conceder isenção de multa? SIM `,
+    mascara: `Cliente atendido conforme processo Desconhece Migração para Pacote Pago, concedida a correção: Vencimento:2022, Valor total da fatura vencida R$:________, Valor do desconto R$ ________Vencimento:2022, Valor total da fatura a vencer R$:________, Valor do desconto R$ ________Conceder isenção de multa? SIM`,
     area: "B.O Retenção",
     prazo: "Até 4 dias/úteis"
   }

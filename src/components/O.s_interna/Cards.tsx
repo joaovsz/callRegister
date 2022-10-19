@@ -8,11 +8,9 @@ const Cards = () => {
   const theme = createTheme({
     palette: {
       primary: {
-        // Purple and green play nicely together.
         main: "#6C4C9C",
       },
       secondary: {
-        // This is green.A700 as hex.
         main: "#96BAFF",
       },
     },
@@ -22,13 +20,13 @@ const Cards = () => {
   });
   function copyMask(mascara: string){
     copy(mascara)
-    alert("Texto copiado")
+    alert("Máscara Copiada")
   }
   return (
     <>
     {matrizDB.map((card: Mascaras, index: number) => (
       <Card className={`card-${index} card-group`} >
-        <CardActionArea>
+        <CardActionArea onClick={()=>copyMask(card.mascara)}>
           <CardContent>
             <h3>
               {card.nome}
@@ -38,13 +36,6 @@ const Cards = () => {
             </span>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <ThemeProvider theme={theme}>
-          <Button size="large" onClick={()=>copyMask(card.mascara)}>
-            Copiar
-          </Button>
-          </ThemeProvider>
-        </CardActions>
       </Card>
   )
   )
