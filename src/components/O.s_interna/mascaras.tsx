@@ -28,7 +28,12 @@ export const matrizDB: Mascaras[] = [
     descricao:"Solicitação de aplicação de desconto na fatura de cliente que está no cenário: Desconhece migração para Pacote Pago",
     opcao:`Quando o cliente solicitar cancelamento pelo motivo relacionado em público alvo. 
     Consulte o procedimento em RECEP. TV> Orientações Cliente BRI > Desconhece migração para Pacote Pago`,
-    mascara: `Cliente atendido conforme processo Desconhece Migração para Pacote Pago, concedida a correção: Vencimento:2022, Valor total da fatura vencida R$:________, Valor do desconto R$ ________Vencimento:2022, Valor total da fatura a vencer R$:________, Valor do desconto R$ ________Conceder isenção de multa? SIM`,
+    mascara: `
+    Cliente atendido conforme processo Desconhece Migração para Pacote Pago, concedida a correção: 
+    Vencimento:2022, Valor total da fatura vencida R$:________, Valor do desconto R$ ________
+    Vencimento:2022, Valor total da fatura a vencer R$:________, Valor do desconto R$ ________
+    Conceder isenção de multa? SIM
+    `,
     area: "B.O Retenção",
     prazo: "Até 4 dias/úteis"
   }
@@ -48,11 +53,11 @@ export const matrizDB: Mascaras[] = [
     opcao:"Quando o cliente solicitar a gravação para confirmação de algum atendimento.",
     mascara: `
     Cliente solicita resgate de chamadas, conforme informações abaixo: 
-    Número(s) do telefone que originou a chamada que deve ser resgatada:____________________________
+    Número(s) do telefone que originou a chamada que deve ser resgatada:________
     Data e hora aproximada da ligação:___________
-    Número do protocolo:______________________
-    Telefone para contato:_____________________
-    Motivo da solicitação:______________________`,
+    Número do protocolo:__________
+    Telefone para contato:________
+    Motivo da solicitação:________`,
     area: "B.O Atendimento",
     prazo: "10 dias corridos"
   }
