@@ -6,7 +6,7 @@
   height: 25rem
   border-radius: 2rem
   padding: 2rem
-  
+ 
   @include flexColumn(2rem, flex-start, none)
 
   .selectCall
@@ -20,9 +20,9 @@
       @include flexColumn(0, center, left)
       .MuiToggleButtonGroup-root
         width: 100%
-    h2
-      
-      margin-bottom: 1rem
+  .label
+    color: $text
+    margin-bottom: 1rem
       
   #registerButton
     position: relative
@@ -33,22 +33,28 @@
     width:20%
     height: 100%
     border-radius: 1rem
-    background: $green
+    background: $purple
       
   .MuiButtonBase-root
     padding:0                                      
     color: $white-bg
     width: 100%
     border: none
-    
 
     .MuiFormControl-root
       color: $white-bg
       width: 100%
-      
+      .MuiFormLabel-root
+        color: $white-bg
+      .MuiSvgIcon-root
+        color: $purple
+      .MuiOutlinedInput-notchedOutline
+        border: 1px solid $purple
       .MuiInputBase-root
         height: 3.8rem
-        color: $purple
+        color: $white-bg
+  .MuiOutlinedInput-notchedOutline
+    border: 1px solid $purple
        
 .info
   width: 100%
@@ -58,7 +64,9 @@
   .MuiFormControl-root
     margin-top: .3rem
     width: 100%
+    border-color: $text 
     #outlined-basic
-      
+      color: $text
       width: 100% 
+  
       

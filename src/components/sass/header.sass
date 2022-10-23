@@ -2,18 +2,38 @@
 @import mixins.sass
 
 #header
-  background: $black
+  background: $purple
   color:$white-bg
-  height: 4rem  
-  width: 100vw 
-  @include flexRow(4rem)
+  position: fixed
+  width: 5rem  
+  height: 100vh 
+  @include flexColumn(0, center , center)
+  nav
+    @include flexColumn(1rem, center, center)
   nav a
+    align-items: center
+    height: 2.5rem
     color: $text
+    text-align: center
     text-decoration: none
     font-size: 1.2rem
     padding: 0 .5rem
-
-
+    svg
+      height: 2.5rem
+      width: 4rem
+  .navlist
+    width: 100%
+    height: 2.5rem
+    @include flexRow(0)
+    justify-content: space-between
+    align-items: center
+#links
+  height: 4rem
+  padding: 0
+.MuiButtonBase-root .MuiSvgIcon-root
+  color: white
+  height: 2.5rem
+  width: 4rem
 
       
 

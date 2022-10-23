@@ -12,22 +12,23 @@ import { useContext, useState } from 'react';
 import { ChartsContext } from '../../context/chart_context';
 import '../../sass/form.sass'
 
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#8758FF",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#96BAFF",
+    },
+  },
+  typography: {
+      fontFamily: ["Poppins"].join(','),
+  },
+
+});
 export const Form = () => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        // Purple and green play nicely together.
-        main: "#6C4C9C",
-      },
-      secondary: {
-        // This is green.A700 as hex.
-        main: "#96BAFF",
-      },
-    },
-    typography: {
-        fontFamily: ["Poppins"].join(','),
-    },
-  });
+  
   const {
     typeCall,
     typeCanceled,
@@ -42,8 +43,7 @@ export const Form = () => {
     <form  id="registerCall">
       <div className='selectCall'>
       <span>
-      
-      <h2>Tipo da chamada</h2>
+      <p className="label">Tipo da chamada</p>
       <ToggleButtonGroup
         exclusive
         onChange={handleChange}
@@ -55,7 +55,7 @@ export const Form = () => {
         tabIndex={1}
         value="RETIDO">
           <FormControl>
-            <InputLabel id="Retido">Retido</InputLabel>
+            <InputLabel id="Retido" >Retido</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -150,7 +150,7 @@ export const Form = () => {
       </div>
       <div className="info">
       <div>
-      <h2>Informações</h2>
+      <p className="label">Informações</p>
       <TextField id="outlined-basic" onChange={handleChangeInfo} placeholder="62999999999" variant="outlined" value={info} />
       </div>
       <Button

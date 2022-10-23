@@ -1,13 +1,17 @@
 @import variables.sass
 @import mixins.sass
 #matrizes
-  background: $white-bg
-  width: 100vw
+  @include flexColumn(0, flex-start, center)
+  position: relative
+  background: $black
+  width: calc(100vw - 5rem)
+  gap: 2rem
   height: 100vh
-  margin: auto
+  left: 5rem 
   #title-container
-    padding: 1rem 0 0 0
-    margin: auto
+    padding: 0 0 0 1rem
+    margin: auto auto 0 auto
+    color: $text
     width: calc(90% - 8rem)
     text-align: center
     span
@@ -19,8 +23,8 @@
 .card-container
   width: calc(90% - 8rem)
   height: 80vh 
-  padding: 2rem 0 4rem 0
-  margin: auto
+  padding: 0 0 4rem 0
+  margin: 0 auto
   display: grid
   align-items: center
   grid-template-columns: repeat(3, 1fr)
@@ -29,8 +33,10 @@
   grid-row-gap: 10px
 
   .card-group
-    box-shadow: 2px 4px 14px -2px #2e2e2ecc
-    // border: 1px solid $raisin-black
+    color: $text
+    background: $raisin-black
+    // box-shadow: 2px 4px 14px -2px #2e2e2ecc
+    // // border: 1px solid $raisin-black
     text-align: center
     border-radius: 1.2rem
     @include flexColumn(0, flex-start, left)

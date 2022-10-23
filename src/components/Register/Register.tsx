@@ -12,7 +12,7 @@ export const Register = () => {
     <main id="main-container">
       <section id="register">
       <Form/>
-      <Divider orientation="vertical" variant="middle" flexItem />
+      <Divider orientation="vertical" color="white" variant="middle" flexItem />
       <Day_Results/>
       </section>
       <List/>

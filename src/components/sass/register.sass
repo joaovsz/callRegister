@@ -2,19 +2,20 @@
 @import mixins.sass
 
 #main-container
-  width: 100vw
-  height: calc(100vh - 4rem)
-  @include flexColumn(0, flex-start, left)
+  position: relative
+  left: 6rem
+  width: calc(100vw - 6rem)
+  height: 100vh
+  @include flexColumn(0, center, center)
+  gap: 4rem
   overflow: auto
   #register
     border-radius: 1rem
-    // border: 1px solid $gray-light
+    background: $raisin-black
     width: calc(100% - 8rem)
     height: 25rem
     gap: 3rem
-    margin: 2rem 4rem 0 4rem
-    -webkit-box-shadow: 3px 4px 15px -4px rgba(0,0,0,0.8)
-    box-shadow: 2px 4px 14px -2px #2e2e2ecc
+    margin: 0 4rem 0 4rem
     @include flexRow(0)
 
   #results
@@ -30,12 +31,13 @@
       width: 100%
       height: 100%
     span
-      font-weight: 700
+      color: $text
+      // font-weight: 700
       
     #atendidas, #cancelados, #taxa, #BRI, #COMODATO
       border-radius: .8rem
       height: 2.4rem
-      color: white
+      color: $text
       padding-top: 1.5rem
       padding-bottom: 1.5rem
       background-color: $gray-light
@@ -55,24 +57,30 @@
       background-color: $black  
 
   #tableInfo
-    height: 36vh
     display: flex
     width: calc(100% - 8rem)
     align-items: bottom
     justify-content: space-between
-    margin: auto
+    margin: 0 auto
   #tabela
+      height: 28rem
       width: 55%
-      padding: 0 2rem
+      
+      h2
+        padding: 0 0 2rem 0 
+        color: $text
       .MuiPaper-root
+        border-radius: 1rem
+        height: 50rem
         width: 100%
+        background-color: $raisin-black
         // border: .1rem $purple solid
         height: 95%
         .MuiTable-root
           height: 100%
           overflow-y: scroll
           h2.alertInit
-            color: $raisin-black
+            color: $text
             opacity: 0.3
             position: relative
             top: 45%
@@ -82,16 +90,17 @@
             tr th
               font-weight: bold
               font-size: 1rem
-              color: $black
+              color: $text
         .MuiTableCell-root
           font-size: 1.2rem
           font-weight: 300
-          color: $black
+          color: $text
        
       
       #chart 
         width: 100%
         div
+          background: none
           height: 200%     
           #reactgooglegraph-1
             width: 100%

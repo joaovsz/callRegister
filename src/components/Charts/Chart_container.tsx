@@ -23,6 +23,9 @@ const {retidos,
   const typeCall = { 
     title: "Tipo da chamada",
     pieHole: 0.4,
+    backgroundColor: "none",
+    legendTextStyle:{color: 'white'},
+    titleTextStyle:{color:"white"},
     colors: ['#38E54D', '#002B5B','#FFD24C', '#30292F', '#3B44F6']
   }
   const typeCancelamento = { 
@@ -36,7 +39,7 @@ const {retidos,
    {calls.length>0?<Chart
       chartType="PieChart"
       data={data}
-      width={"100%"}
+      width={"500px"}
       height={"100%"}
       options={typeCall}
       />:<h2 className="alertInit chart">

@@ -16,7 +16,6 @@ return (
   <div id="tableInfo">
       <div id='tabela'>
       <h2>Histórico de chamadas</h2>
-      
       <TableContainer component={Paper} >
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
@@ -44,6 +43,7 @@ return (
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
               <TableCell component="th" scope="row">
+                
                 {row.typeCall}
               </TableCell>
             
