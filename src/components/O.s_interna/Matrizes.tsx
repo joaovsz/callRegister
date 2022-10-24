@@ -7,7 +7,6 @@ export const Matrizes = () => {
       <div id="title-container">
     <h1>Máscaras de O.S Interna</h1>
     <span className="help">Ao clicar na máscara ela é copiada automaticamente</span>
-
       </div>
    <div className="card-container">
     <Cards/>

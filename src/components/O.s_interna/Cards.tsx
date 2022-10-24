@@ -28,12 +28,15 @@ const Cards = () => {
       <Card className={`card-${index} card-group`} >
         <CardActionArea onClick={()=>copyMask(card.mascara)}>
           <CardContent>
-            <h3>
+          
+              <h3>
               {card.nome}
             </h3>
             <span>
               {card.mascara}
             </span>
+            
+            
           </CardContent>
         </CardActionArea>
       </Card>

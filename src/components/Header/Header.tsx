@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../sass/header.sass"
-import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import HomeIcon from '@mui/icons-material/Home';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LinkIcon from '@mui/icons-material/Link';
 import Button from "@mui/material/Button";
 import { Menu, MenuItem } from "@mui/material";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import React from "react";
 export const Header = () => {
   useEffect(() => {
@@ -39,14 +39,25 @@ export const Header = () => {
       {/* <ContactPhoneIcon/> */}
       <div>
      <nav className="navbar">
+     
       <Link to="/">
         <div className="navlist">
         <HomeIcon className="navIcons"/>
         {/* <p>Início</p> */}
         </div>
         </Link>
+        
+        <a target="_blank" href="https://simuladorrv.netlify.app"><AttachMoneyIcon/></a>
+       
       {/* <Link to="dashboard">Dashboard</Link> */}
-      <Button
+      
+      <Link to="matrizes">
+      <div className="navlist">
+      <DescriptionIcon className="navIcons" />
+        {/* <p>O.S Interna</p> */}
+        </div>
+        </Link>
+        <Button
       id="links"
       aria-controls={open ? 'basic-menu' : undefined}
       aria-haspopup="true"
@@ -54,8 +65,8 @@ export const Header = () => {
       onClick={handleClick}
       >
         <LinkIcon className="navIcons"/>
-        </Button> 
-        <Menu
+      </Button> 
+      <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -64,18 +75,12 @@ export const Header = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}><a target="_blank" href="gip.intranet/">GIP</a></MenuItem>
-        <MenuItem onClick={handleClose}><a target="_blank" href="operacao-sisweb/Messenger/Sessao/Login?returnUrl=/Messenger">SisWeb</a></MenuItem>
-        <MenuItem onClick={handleClose}><a target="_blank" href="totalview.intranet/pt_BR/web/guest/">TotalView</a></MenuItem>
-        <MenuItem onClick={handleClose}><a target="_blank" href="minhabtcc.local.srv.br">Minha BTCC</a></MenuItem>
+       <a target="_blank" href="http://gip.intranet/"><MenuItem onClick={handleClose}>GIP</MenuItem></a>
+       <a target="_blank" href="http://operacao-sisweb/Messenger/Sessao/Login?returnUrl=/Messenger"> <MenuItem onClick={handleClose}>SisWeb</MenuItem></a>
+       <a target="_blank" href="http://totalview.intranet/pt_BR/web/guest/"> <MenuItem onClick={handleClose}>TotalView</MenuItem></a>
+       <a target="_blank" href="http://minhabtcc.local.srv.br"><MenuItem onClick={handleClose}>Minha BTCC</MenuItem></a>
+       <a target="_blank" href="http://poi.gupy.io"><MenuItem onClick={handleClose}>POI</MenuItem></a>
       </Menu>
-      <Link to="matrizes">
-      <div className="navlist">
-      <DescriptionIcon className="navIcons" />
-        {/* <p>O.S Interna</p> */}
-        </div>
-        
-        </Link>
       </nav> 
       </div>
     </header>
