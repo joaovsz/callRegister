@@ -24,7 +24,7 @@ return (
             <TableCell>Tipo da chamada</TableCell>
             <TableCell align="left">Motivo do Cancelamento</TableCell>
             <TableCell align="center">Informações</TableCell>
-            <TableCell align="left">Simulado</TableCell>
+            <TableCell align="right">Simulado</TableCell>
            
           </TableRow>
         </TableHead>
@@ -50,7 +50,7 @@ return (
               </TableCell>
               <TableCell align="left">{row.typeCanceled}</TableCell>
               <TableCell align="center">{row.info}</TableCell>
-              <TableCell align="left"><Checkbox/></TableCell>
+              <TableCell align="right"><Checkbox/></TableCell>
             </TableRow>
           ))}
         </TableBody >:<h2 className="alertInit"> Sem registros no momento</h2>
