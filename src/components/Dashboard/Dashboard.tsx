@@ -56,19 +56,22 @@ export const Dashboard = () => {
       <div className="container">
       <div id="typecalls">
           <div id="bri" className="card-container">
+            <div className="infos">
             <h3>BRIs Cancelados</h3>
             <Divider/>
-            {typeCanceledBRI.map((type) => (
-              <div className="card">
+            </div>
+            {typeCanceledBRI.map((type, index) => (
+              <div className={"card" + index}>
                 <span className="type-title">{type}</span>
                 <span className="quantity"> 2</span>
               </div>
-
             ))}
           </div>
           <div id="comodato" className="card-container">
+          <div className="infos">
             <h3>Comodatos Cancelados</h3>
             <Divider/>
+          </div>
             {typeCanceledCOMODATO.map(type => (
               <div className="card">
                 <span className="type-title">{type}</span>
@@ -77,8 +80,10 @@ export const Dashboard = () => {
             ))}
           </div>
           <div id="prePago" className="card-container">
+          <div className="infos">
             <h3>Pré-Pago</h3>
             <Divider/>
+          </div>
             <div className="card">
               <span className="type-title">Oi Tv Livre</span>
               <span className="quantity"> 2</span>
@@ -89,8 +94,10 @@ export const Dashboard = () => {
             </div>
           </div>
           <div id="badCall" className="card-container">
+          <div className="infos">
             <h3>Improdutivas (BADCALL)</h3>
           <Divider/>
+          </div>
             <div className="card">
               <span className="type-title">Serviços e Informações</span>
               <span className="quantity"> 2</span>
