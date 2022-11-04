@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import { ChartsContext } from '../../context/chart_context';
 import { useContext } from 'react';
 import { Chart_container } from '../../Charts/Chart_container';
+import Checkbox from '@mui/material/Checkbox';
 
 export const List = () => {
 const {calls} = useContext(ChartsContext)
@@ -21,12 +22,14 @@ return (
         <TableHead>
           <TableRow>
             <TableCell>Tipo da chamada</TableCell>
-            <TableCell align="right">Motivo do Cancelamento</TableCell>
-            <TableCell align="right">Informações</TableCell>
+            <TableCell align="left">Motivo do Cancelamento</TableCell>
+            <TableCell align="center">Informações</TableCell>
+            <TableCell align="left">Simulado</TableCell>
            
           </TableRow>
         </TableHead>
-        {calls.length>0?        <TableBody>
+        {calls.length>0?        
+        <TableBody>
           {calls.map((row, index) => (
             <TableRow
             className={
@@ -42,13 +45,12 @@ return (
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-              <TableCell component="th" scope="row">
-                
+              <TableCell component="th" scope="row" id={row.typeCall}>
                 {row.typeCall}
               </TableCell>
-            
-              <TableCell align="right">{row.typeCanceled}</TableCell>
-              <TableCell align="right">{row.info}</TableCell>
+              <TableCell align="left">{row.typeCanceled}</TableCell>
+              <TableCell align="center">{row.info}</TableCell>
+              <TableCell align="left"><Checkbox/></TableCell>
             </TableRow>
           ))}
         </TableBody >:<h2 className="alertInit"> Sem registros no momento</h2>
