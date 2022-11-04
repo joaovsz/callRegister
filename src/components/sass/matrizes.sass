@@ -35,7 +35,6 @@
   .card-group
     color: $text
     background: $raisin-black
-
     text-align: center
     border-radius: 1.2rem
     @include flexColumn(0, flex-start, left)
@@ -46,15 +45,18 @@
     .MuiCardContent-root
       text-align: left
       margin: auto
-      width: 86%
+      width: 100%
       height: 100%
       
       h3
-        font-size:1.2rem
-        padding: 0 0 1rem 0
+        font-size:1.4rem
+        padding: 0 0 .5rem 0
+      h5
+        opacity: .8
+        padding-bottom: .5rem
       span
         overflow-y: scroll
-        font-size: .7rem
+        font-size: .75rem
    
   .card-0 
     grid-area: 1 / 1 / 2 / 2 
