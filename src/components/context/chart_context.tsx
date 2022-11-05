@@ -1,27 +1,27 @@
-import { SelectChangeEvent } from "@mui/material/Select";
-import { createContext, useEffect, useState } from "react";
-import { Register } from "../types/context";
+import { SelectChangeEvent } from '@mui/material/Select'
+import { createContext, useEffect, useState } from 'react'
+import { Register } from '../types/context'
 
 //No contexto sempre criar valores iniciais e declarações de tipo
 
 interface chartContexts {
-  typeCall: string,
-  typeCanceled: string,
-  info: string,
-  canceladoCOMODATO: number,
-  canceladoBRI: number,
-  badCall: number,
-  retidos: number,
-  PrePago: number,
-  taxa: number,
-  totalCanceled:number,
-  calls: Register[],
-  handleChange: (e: any, canceledValue: string) => void,
-  handleChangeCanceled: (e: SelectChangeEvent) => void,
-  handleChangeInfo: (e: { target: { value: string } }) => void,
-  registerCall: () => void,
-  calculateCalls: (type: string) => void,
-  calcularTaxa:(totalCanceled: number)=> void
+  typeCall: string
+  typeCanceled: string
+  info: string
+  canceladoCOMODATO: number
+  canceladoBRI: number
+  badCall: number
+  retidos: number
+  PrePago: number
+  taxa: number
+  totalCanceled: number
+  calls: Register[]
+  handleChange: (e: any, canceledValue: string) => void
+  handleChangeCanceled: (e: SelectChangeEvent) => void
+  handleChangeInfo: (e: { target: { value: string } }) => void
+  registerCall: () => void
+  calculateCalls: (type: string) => void
+  calcularTaxa: (totalCanceled: number) => void
 }
 const initialValue = {
   typeCall: '',
@@ -32,15 +32,15 @@ const initialValue = {
   badCall: 0,
   retidos: 0,
   PrePago: 0,
-  taxa: 0 ,
+  taxa: 0,
   totalCanceled: 0,
   calls: [],
-  handleChange: () => { },
-  handleChangeCanceled: () => { },
-  handleChangeInfo: () => { },
-  registerCall: () => { },
-  calculateCalls: () => { },
-  calcularTaxa:()=>{}
+  handleChange: () => {},
+  handleChangeCanceled: () => {},
+  handleChangeInfo: () => {},
+  registerCall: () => {},
+  calculateCalls: () => {},
+  calcularTaxa: () => {}
 }
 
 export const ChartsContext = createContext<chartContexts>(initialValue)
@@ -62,7 +62,7 @@ export function ChartProvider(props: any) {
     typeCall: typeCall,
     typeCanceled: typeCanceled,
     info: info,
-    date: new Date(),
+    date: new Date()
   }
 
   useEffect(() => {
@@ -70,10 +70,12 @@ export function ChartProvider(props: any) {
     setTypeCall('')
     setTypeCanceled('')
     setInfo('')
-    
   }, [calls])
 
-  function handleChange(_event: React.MouseEvent<HTMLElement>, canceledValue: string) {
+  function handleChange(
+    _event: React.MouseEvent<HTMLElement>,
+    canceledValue: string
+  ) {
     setTypeCall(canceledValue)
     console.log(canceledValue)
   }
@@ -86,56 +88,80 @@ export function ChartProvider(props: any) {
     console.log(info)
   }
 
-  function calcularTaxa(totalCanceled: number){
+  function calcularTaxa(totalCanceled: number) {
     const cancelados = totalCanceled * 100
     const dividendo = calls.length
-    return setTaxa(cancelados/dividendo)
+    return setTaxa(cancelados / dividendo)
   }
 
   function calculateCalls(type: string) {
     switch (type) {
       case 'RETIDO':
-        const retidoQuantity = calls.filter(calls => { return calls.typeCall === "RETIDO" })
+        const retidoQuantity = calls.filter(calls => {
+          return calls.typeCall === 'RETIDO'
+        })
         return setRetidos(retidoQuantity.length)
       case 'CANCELADO_BRI':
-        const canceledQuantity = calls.filter(calls => { return calls.typeCall === "CANCELADO_BRI" })
+        const canceledQuantity = calls.filter(calls => {
+          return calls.typeCall === 'CANCELADO_BRI'
+        })
         setTotalCanceled(prevCanceled => prevCanceled + 1)
         console.log(totalCanceled)
         return setBRI(canceledQuantity.length)
-        case 'CANCELADO_COMODATO':
-          const canceledCMDQuantity = calls.filter(calls => { return calls.typeCall === "CANCELADO_COMODATO" })
-          setTotalCanceled(prevCanceled => prevCanceled + 1)
-          console.log(totalCanceled)
+      case 'CANCELADO_COMODATO':
+        const canceledCMDQuantity = calls.filter(calls => {
+          return calls.typeCall === 'CANCELADO_COMODATO'
+        })
+        setTotalCanceled(prevCanceled => prevCanceled + 1)
+        console.log(totalCanceled)
         return setCMD(canceledCMDQuantity.length)
 
       case 'BADCALL':
-        const badCallQuantity = calls.filter(calls => { return calls.typeCall === "BADCALL" })
+        const badCallQuantity = calls.filter(calls => {
+          return calls.typeCall === 'BADCALL'
+        })
 
         return setBadCall(badCallQuantity.length)
 
       case 'PRE_PAGO':
-
-        const prePagoQuantity = calls.filter(calls => { return calls.typeCall === "PRE_PAGO" })
+        const prePagoQuantity = calls.filter(calls => {
+          return calls.typeCall === 'PRE_PAGO'
+        })
         return setPrePago(prePagoQuantity.length)
 
       default:
-        break;
-      }
+        break
+    }
   }
 
   function registerCall() {
-    typeCall?setCalls(prevCall => [...prevCall, register]):alert("Preencha o tipo da chamada")
-    
-    
+    typeCall
+      ? setCalls(prevCall => [...prevCall, register])
+      : alert('Preencha o tipo da chamada')
   }
 
   return (
-    <ChartsContext.Provider value={{
-      typeCall, calculateCalls, calcularTaxa, totalCanceled,
-      typeCanceled, info, handleChangeCanceled,
-      handleChange, handleChangeInfo, registerCall,taxa,
-      calls, canceladoCOMODATO, canceladoBRI, badCall, retidos, PrePago
-    }}>
+    <ChartsContext.Provider
+      value={{
+        typeCall,
+        calculateCalls,
+        calcularTaxa,
+        totalCanceled,
+        typeCanceled,
+        info,
+        handleChangeCanceled,
+        handleChange,
+        handleChangeInfo,
+        registerCall,
+        taxa,
+        calls,
+        canceladoCOMODATO,
+        canceladoBRI,
+        badCall,
+        retidos,
+        PrePago
+      }}
+    >
       {props.children}
     </ChartsContext.Provider>
   )

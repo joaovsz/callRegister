@@ -1,52 +1,50 @@
-import { useContext, useEffect } from "react";
-import { Chart } from "react-google-charts";
-import { ChartsContext } from "../context/chart_context";
-import "../sass/register.sass"
-
+import { useContext, useEffect } from 'react'
+import { Chart } from 'react-google-charts'
+import { ChartsContext } from '../context/chart_context'
+import '../sass/register.sass'
 
 export const Chart_container = () => {
-const {retidos, 
-  canceladoCOMODATO, canceladoBRI, 
-  badCall, PrePago, calls} = useContext(ChartsContext)
+  const { retidos, canceladoCOMODATO, canceladoBRI, badCall, PrePago, calls } =
+    useContext(ChartsContext)
 
- const data = [
-    ["Task", "Hours per Day"],
-    ["Retidos", retidos],
-    ["Badcall", badCall],
-    ["Cancelados BRI",canceladoBRI ],
-    ["Cancelados Comodato", canceladoCOMODATO],
-    ["Pré Pago", PrePago],
-  ];
+  const data = [
+    ['Task', 'Hours per Day'],
+    ['Retidos', retidos],
+    ['Badcall', badCall],
+    ['Cancelados BRI', canceladoBRI],
+    ['Cancelados Comodato', canceladoCOMODATO],
+    ['Pré Pago', PrePago]
+  ]
 
- 
-  
-  const typeCall = { 
-    title: "Tipo da chamada",
+  const typeCall = {
+    title: 'Tipo da chamada',
     pieHole: 0.4,
-    backgroundColor: "none",
-    legendTextStyle:{color: 'white'},
-    titleTextStyle:{color:"white"},
-    colors: ['#38E54D', '#002B5B','#FFD24C', '#30292F', '#3B44F6']
+    backgroundColor: 'none',
+    legendTextStyle: { color: 'white' },
+    titleTextStyle: { color: 'white' },
+    colors: ['#38E54D', '#002B5B', '#FFD24C', '#30292F', '#3B44F6']
   }
-  const typeCancelamento = { 
-    title: "Motivo do cancelamento",
+  const typeCancelamento = {
+    title: 'Motivo do cancelamento',
     pieHole: 0.3,
-    colors: ['#2B4865', '#002B5B','#002B5B', '#990000', '#355691']
+    colors: ['#2B4865', '#002B5B', '#002B5B', '#990000', '#355691']
   }
-  
+
   return (
     <>
-   {calls.length>0?<Chart
-      chartType="PieChart"
-      data={data}
-      width={"500px"}
-      height={"100%"}
-      options={typeCall}
-      />:<h2 className="alertInit chart">
-        Sem registros no momento
-        </h2>}
-      
-    {/* <Chart
+      {calls.length > 0 ? (
+        <Chart
+          chartType="PieChart"
+          data={data}
+          width={'500px'}
+          height={'100%'}
+          options={typeCall}
+        />
+      ) : (
+        <h2 className="alertInit chart">Sem registros no momento</h2>
+      )}
+
+      {/* <Chart
       chartType="PieChart"
       data={data}
       options={typeCancelamento}
