@@ -12,7 +12,7 @@ export const Register = () => {
   const { localUser } = useContext(ChartsContext)
   const [date, setDate] = useState<Dayjs | null>(dayjs())
   console.log(date)
-  const formattedDate = `${date.$D}/${date.$M + 1}/${date.$y}`
+  const formattedDate = dayjs(date).format('YYYY/MM/DD')
 
   return (
     <>
