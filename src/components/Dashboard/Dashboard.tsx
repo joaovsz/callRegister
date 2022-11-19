@@ -2,7 +2,9 @@ import Divider from '@mui/material/Divider'
 import { useContext } from 'react'
 import Chart from 'react-google-charts'
 import { ChartsContext } from '../context/chart_context'
+import { Header } from '../Header/Header'
 import '../sass/dashboard.sass'
+import { Register } from '../types/context'
 
 const typeCanceledBRI = [
   'Venda Indevida',
@@ -19,7 +21,13 @@ const typeCanceledCOMODATO = [
 ]
 
 export const Dashboard = () => {
-  const { typeCall, typeCanceled, calls } = useContext(ChartsContext)
+  const { typeCall, typeCanceled, calls, dataRegister } =
+    useContext(ChartsContext)
+
+  const canceledPRECO = calls.filter(c => {
+    c.typeCanceled === 'Preço Alto' && typeCall == 'CANCELADO_BRI'
+  })
+
   const data = [
     ['Taxa', 'Cancelados', { role: 'style' }],
     ['01/10', 2, '#FF5D5D'],
@@ -55,6 +63,7 @@ export const Dashboard = () => {
   ]
   return (
     <>
+      <Header />
       <span className="title">Registro de Resultados Totais</span>
       <span className="subtitle">Outubro</span>
       <div className="container">
@@ -67,7 +76,7 @@ export const Dashboard = () => {
             {typeCanceledBRI.map((type, index) => (
               <div className={'card' + index}>
                 <span className="type-title">{type}</span>
-                <span className="quantity"> 2</span>
+                <span className="quantity">{canceledPRECO.length}</span>
               </div>
             ))}
           </div>
@@ -125,7 +134,7 @@ export const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="month">
+        {/* <div className="month">
           <div id="barChart">
             <Chart
               chartType="ColumnChart"
@@ -134,7 +143,7 @@ export const Dashboard = () => {
               data={data}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )

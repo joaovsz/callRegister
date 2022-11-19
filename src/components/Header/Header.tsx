@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../sass/header.sass'
 import HomeIcon from '@mui/icons-material/Home'
@@ -7,7 +7,10 @@ import LinkIcon from '@mui/icons-material/Link'
 import Button from '@mui/material/Button'
 import { Menu, MenuItem } from '@mui/material'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
+import TimelineIcon from '@mui/icons-material/Timeline'
 import React from 'react'
+import { ChartsContext } from '../context/chart_context'
+import LogoutIcon from '@mui/icons-material/Logout'
 export const Header = () => {
   useEffect(() => {
     getDate()
@@ -27,12 +30,12 @@ export const Header = () => {
     const day = String(date.getDay()).padStart(2, '0')
     const month = String(date.getMonth()).padStart(2, '0')
     const allDate = `${day}/${month}/${year}`
-    console.log(allDate)
+
     return allDate
   }
 
   const date = getDate()
-
+  const { logout } = useContext(ChartsContext)
   return (
     <header id="header">
       {/* <ContactPhoneIcon/> */}
@@ -49,9 +52,11 @@ export const Header = () => {
             <AttachMoneyIcon />
           </a>
 
-          {/* <Link to="dashboard">Dashboard</Link> */}
+          <Link to="/dashboard">
+            <TimelineIcon />
+          </Link>
 
-          <Link to="matrizes">
+          <Link to="/matrizes">
             <div className="navlist">
               <DescriptionIcon className="navIcons" />
               {/* <p>O.S Interna</p> */}
@@ -100,6 +105,12 @@ export const Header = () => {
             </a>
           </Menu>
         </nav>
+        <Button
+          id="logout"
+          onClick={logout}
+          variant="text"
+          startIcon={<LogoutIcon />}
+        />
       </div>
     </header>
   )
