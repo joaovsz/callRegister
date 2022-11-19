@@ -1,8 +1,11 @@
-require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
 const userRouter = require('./routes/userRouter')
+
+header('Access-Control-Allow-Origin: https://callregister.netlify.app/')
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS')
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token')
 
 app.use(express.json())
 app.use(cors())
