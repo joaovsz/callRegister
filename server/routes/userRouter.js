@@ -4,8 +4,11 @@ const userController = require('../controllers/user_controller')
 const middleware = require('../middleware/users')
 const app = express()
 const cors = require('cors')
-
-app.use(cors())
+const options = {
+  methods: 'POST',
+  origin: '*'
+}
+app.use(cors(options))
 app.use(express.json())
 router.post('/loadregister', userController.getCalls)
 router.post('/markup', userController.markCall)
