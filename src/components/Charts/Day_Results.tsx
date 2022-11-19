@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import { ChartsContext } from '../context/chart_context'
-import { Chart_container } from './Chart_container'
 
 export const Day_Results = () => {
   const {
@@ -9,12 +8,12 @@ export const Day_Results = () => {
     totalCanceled,
     calcularTaxa,
     canceladoBRI,
-    canceladoCOMODATO
+    canceladoCOMODATO,
+    dataRegister
   } = useContext(ChartsContext)
   useEffect(() => {
     calcularTaxa(totalCanceled)
   }, [totalCanceled, calls])
-
   return (
     <>
       <section id="results">
@@ -22,8 +21,15 @@ export const Day_Results = () => {
           <span>Resultado Diário</span>
           <div id="atendidas">
             <span>Total de Atendidas</span>
-            <span className="quantity">{calls.length}</span>
+            <span className="quantity">
+              <p>Total: {calls.length}</p>
+              <p className="preais">
+                Produtivas Reais:{' '}
+                {calls.filter(call => call.transferred !== 1).length}
+              </p>
+            </span>
           </div>
+
           <div id="BRI">
             <span>Cancelados BRI</span>
             <span className="quantity">{canceladoBRI}</span>

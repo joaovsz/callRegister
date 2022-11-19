@@ -9,6 +9,7 @@ import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import { useContext } from 'react'
 import { ChartsContext } from '../../context/chart_context'
+import moment from 'moment'
 import '../../sass/form.sass'
 
 export const theme = createTheme({
@@ -30,10 +31,13 @@ export const Form = () => {
     typeCall,
     typeCanceled,
     handleChange,
+    date,
     handleChangeCanceled,
     handleChangeInfo,
     info,
-    registerCall
+    registerCall,
+    checkTransferred,
+    transferred
   } = useContext(ChartsContext)
 
   return (
@@ -128,7 +132,7 @@ export const Form = () => {
                       Insatisfação Geral
                     </MenuItem>
                     <MenuItem value="Preço Alto ">Preço Alto</MenuItem>
-                    <MenuItem value="Venda Indevida ">Venda Indevida</MenuItem>
+                    <MenuItem value="Venda Indevida">Venda Indevida</MenuItem>
                     <MenuItem value="Problema Técnico">
                       Problema Técnico
                     </MenuItem>
@@ -173,14 +177,24 @@ export const Form = () => {
               value={info}
             />
           </div>
-          <Button
-            onClick={registerCall}
-            variant="contained"
-            disableElevation
-            id="registerButton"
-          >
-            Registrar
-          </Button>
+          <div className="btns">
+            <Button
+              onClick={() => registerCall(typeCall, typeCanceled, date)}
+              variant="contained"
+              disableElevation
+              id="registerButton"
+            >
+              Registrar
+            </Button>
+            <button
+              className={'transferred ' + (transferred == 1 ? 'clicked' : '')}
+              id="check-transferred"
+              onClick={checkTransferred}
+            >
+              <p>Transferida</p>
+              {/* <Checkbox id="checkBox" /> */}
+            </button>
+          </div>
         </div>
       </form>
     </ThemeProvider>

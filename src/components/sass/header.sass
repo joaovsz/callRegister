@@ -3,15 +3,15 @@
 
 #header
   background: $purple
-  color:$white-bg
+  color: $white-bg
   position: fixed
-  width: 5rem  
-  height: 100vh 
+  width: 5rem
+  height: 100vh
   @include flexColumn(0, center , center)
   nav
     @include flexColumn(1rem, center, center)
     gap: 2rem
-  .navbar .MuiButtonBase-root  
+  .navbar .MuiButtonBase-root
     top: -1.1rem
   nav a
     align-items: center
@@ -33,13 +33,16 @@
 #links
   height: 4rem
   padding: 0
-  
+
 .MuiButtonBase-root .MuiSvgIcon-root
   color: white
   font-size: 2.5rem
-
-
-      
-
-
-
+#logout
+  position: absolute
+  bottom: 1rem
+  span
+    height: 3rem
+    margin: 0
+    svg
+      transform: scaleX(-1)
+      font-size: 2rem

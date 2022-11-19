@@ -6,10 +6,10 @@ import { ChartProvider } from './components/context/chart_context'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ChartProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ChartProvider>
         <App />
-      </BrowserRouter>
-    </ChartProvider>
+      </ChartProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )
