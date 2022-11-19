@@ -46,7 +46,7 @@ export const List = () => {
   })
   useEffect(() => {
     // getData()
-    const date = `${value.$y}-${value.$M + 1}-${value.$D}`
+    const date = dayjs(value).format('YYYY/MM/DD')
 
     getData(date)
   }, [value])
