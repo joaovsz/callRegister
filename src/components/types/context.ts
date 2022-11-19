@@ -21,7 +21,7 @@ export const initialValue = {
   retidos: 0,
   PrePago: 0,
   user: '',
-  localUser: { id: '', username: '', token: '' },
+  localUser: {id: 0, username:"", token:""},
   dataRegister: [] ,
   password: '',
   password_repeat: '',
@@ -69,7 +69,7 @@ export interface chartContexts {
   taxa: number
   totalCanceled: number
   calls: Register[]
-  localUser: {}
+  localUser: {id: number, username:string, token: string}
   dataRegister: Register[]
   handleSubmitRegister: (event: React.FormEvent<HTMLFormElement>) => void
   handleSubmitLogin: (event: React.FormEvent<HTMLFormElement>) => void

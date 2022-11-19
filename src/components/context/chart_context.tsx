@@ -117,7 +117,7 @@ export function ChartProvider(props: any) {
     // localUser ? console.log(localUser) : console.log(token)
   }
   const logout = () => {
-    setLocalUser({ id: '', username: '', token: '' })
+    setLocalUser({ id: 0, username: '', token: '' })
     setIsAuthenticated(false)
     localStorage.removeItem('localUser')
     setToken('')
@@ -205,7 +205,6 @@ export function ChartProvider(props: any) {
       }).then(response => {
         console.log(response.data)
       })
-    } else {
       alert('Preencha o tipo da chamada')
     }
     localStorage.setItem('callsSaved', JSON.stringify(calls))
@@ -233,7 +232,7 @@ export function ChartProvider(props: any) {
           (dataRegisterCall: Register) => dataRegisterCall.registered_at == date
         )
 
-        setDataRegister(filteredCalls)
+        // setDataRegister(filteredCalls)
         setCalls(filteredCalls)
       })
       .finally(() => {
