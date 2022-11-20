@@ -29,7 +29,11 @@ function App() {
       <Routes>
         <Route
           element={
-            token ? <Register /> : loading ? <h2>Carregando...</h2> : <Login />
+            // token ?
+            <Register />
+            // : loading ?
+            //   <h2>Carregando...</h2>
+            //   : <Login />
           }
           path="/"
         />

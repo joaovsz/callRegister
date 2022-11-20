@@ -52,9 +52,9 @@ export const Header = () => {
             <AttachMoneyIcon />
           </a>
 
-          <Link to="/dashboard">
+          {/* <Link to="/dashboard">
             <TimelineIcon />
-          </Link>
+          </Link> */}
 
           <Link to="/matrizes">
             <div className="navlist">
@@ -105,12 +105,12 @@ export const Header = () => {
             </a>
           </Menu>
         </nav>
-        <Button
+        {/* <Button
           id="logout"
           onClick={logout}
           variant="text"
           startIcon={<LogoutIcon />}
-        />
+        /> */}
       </div>
     </header>
   )

@@ -19,7 +19,7 @@ export const Register = () => {
       <Header />
       <main id="main-container">
         <span id="today">
-          <h2>Usuário: {localUser.username}</h2>
+          {/* <h2>Usuário: {localUser.username}</h2> */}
           <h1>{formattedDate}</h1>
         </span>
         <section id="register">

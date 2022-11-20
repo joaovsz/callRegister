@@ -20,7 +20,8 @@ export const Chart_container = () => {
     Mudanca: calls.filter(c => c.typeCanceled == 'MUDEND'),
     VendaEquip: calls.filter(c => c.typeCanceled == 'Venda do Equipamento'),
     Insatisfacao: calls.filter(c => c.typeCanceled == 'Insatisfação Geral '),
-    CanalOi: calls.filter(c => c.typeCanceled == 'Canal Oi!')
+    CanalOi: calls.filter(c => c.typeCanceled == 'Canal Oi!'),
+    PrePago: calls.filter(c => c.typeCall == 'PRE_PAGO')
   }
 
   const data = [
@@ -42,7 +43,8 @@ export const Chart_container = () => {
     ['Sem agendamento', type.SemAgendamento.length],
     ['Venda de Equipamento', type.VendaEquip.length],
     ['Insatisfação Geral', type.Insatisfacao.length],
-    ['Canal Oi!', type.CanalOi.length]
+    ['Canal Oi!', type.CanalOi.length],
+    ['Pré-Pago', type.PrePago.length]
   ]
 
   const typeCall = {
@@ -54,7 +56,7 @@ export const Chart_container = () => {
     colors: ['#38E54D', '#002B5B', '#FFD24C', '#30292F', '#3B44F6']
   }
   const typeCancelamento = {
-    title: 'Motivo da Ligação',
+    title: 'Motivo do Cancelamento',
     pieHole: 0.4,
     backgroundColor: 'none',
     legendTextStyle: { color: 'white' },

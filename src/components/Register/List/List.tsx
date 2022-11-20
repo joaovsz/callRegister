@@ -86,41 +86,40 @@ export const List = () => {
                 <TableCell align="right">Simulado</TableCell>
               </TableRow>
             </TableHead>
-            {loading == false ? (
-              <h2 className="alertInit"> Sem registros no momento</h2>
+            {calls.length > 0 ? (
+              <TableBody>
+                {calls.map((row, index) => (
+                  <TableRow
+                    className={
+                      row.typeCall === 'RETIDO'
+                        ? 'RETIDO'
+                        : row.typeCall === 'BADCALL'
+                        ? 'BADCALL'
+                        : row.typeCall === 'PRE_PAGO'
+                        ? 'PREPAGO'
+                        : row.typeCall === 'CANCELADO_BRI'
+                        ? 'CANCELADO'
+                        : 'CANCELADO'
+                    }
+                    key={index}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row" id={row.typeCall}>
+                      {row.typeCall}
+                    </TableCell>
+                    <TableCell align="left">{row.typeCanceled}</TableCell>
+                    <TableCell align="center">{row.info}</TableCell>
+                    <TableCell align="right">
+                      {row.transferred == 1 ? 'SIM' : 'NÃO'}
+                    </TableCell>
+                    <TableCell align="right">
+                      <Checkbox color="secondary" />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
             ) : (
-              <h2 className="alertInit">Carregado</h2>
-              // <TableBody>
-              //   {calls.map((row, index) => (
-              //     <TableRow
-              //       className={
-              //         row.typeCall === 'RETIDO'
-              //           ? 'RETIDO'
-              //           : row.typeCall === 'BADCALL'
-              //           ? 'BADCALL'
-              //           : row.typeCall === 'PRE_PAGO'
-              //           ? 'PREPAGO'
-              //           : row.typeCall === 'CANCELADO_BRI'
-              //           ? 'CANCELADO'
-              //           : 'CANCELADO'
-              //       }
-              //       key={index}
-              //       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              //     >
-              //       <TableCell component="th" scope="row" id={row.typeCall}>
-              //         {row.typeCall}
-              //       </TableCell>
-              //       <TableCell align="left">{row.typeCanceled}</TableCell>
-              //       <TableCell align="center">{row.info}</TableCell>
-              //       <TableCell align="right">
-              //         {row.transferred == 1 ? 'SIM' : 'NÃO'}
-              //       </TableCell>
-              //       <TableCell align="right">
-              //         <Checkbox color="secondary" />
-              //       </TableCell>
-              //     </TableRow>
-              //   ))}
-              // </TableBody>
+              <h2 className="alertInit"> Sem registros no momento</h2>
             )}
           </Table>
         </TableContainer>
