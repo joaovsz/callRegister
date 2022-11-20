@@ -85,7 +85,7 @@ export function ChartProvider(props: any) {
   }
   const handleSubmitRegister = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    await Axios.post('http://54.197.22.220:3000/user/register', {
+    await Axios.post('https://54.197.22.220:3000/user/register', {
       username: user,
       password: password,
       password_repeat: password_repeat
@@ -95,7 +95,7 @@ export function ChartProvider(props: any) {
   }
   const handleSubmitLogin = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    await Axios.post('http://54.197.22.220:3000/user/login', {
+    await Axios.post('https://54.197.22.220:3000/user/login', {
       username: user,
       password: password
     }).then(res => {
@@ -189,7 +189,7 @@ export function ChartProvider(props: any) {
     if (typeCall) {
       setCalls(prevCall => [...prevCall, register])
       setDate(moment().format())
-      await Axios.post('http://54.197.22.220:3000/user/markup', {
+      await Axios.post('https://54.197.22.220:3000/user/markup', {
         is_canceled:
           typeCall === 'CANCELADO_COMODATO'
             ? 1
@@ -211,7 +211,7 @@ export function ChartProvider(props: any) {
   }
 
   async function getData(date: string) {
-    await Axios.post('http://54.197.22.220:3000/user/loadregister', {
+    await Axios.post('https://54.197.22.220:3000/user/loadregister', {
       user_registered: localUser.id
     })
       .then(function setData(response) {
