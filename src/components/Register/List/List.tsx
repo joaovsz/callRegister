@@ -57,7 +57,7 @@ export const List = () => {
       <div id="tabela">
         <div id="filtrar">
           <h2>Histórico de chamadas</h2>
-          <div id="date-selector">
+          {/* <div id="date-selector">
             <h3>Filtrar por data &gt; </h3>
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -73,7 +73,7 @@ export const List = () => {
                 </Stack>
               </LocalizationProvider>
             </ThemeProvider>
-          </div>
+          </div> */}
         </div>
         <TableContainer component={Paper} id="table">
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
