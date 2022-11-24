@@ -88,7 +88,7 @@ export const Chart_container = () => {
         <Chart
           chartType="PieChart"
           data={dataTypeCanceled}
-          width={'600px'}
+          width={'100%'}
           height={'100%'}
           options={typeCancelamento}
         />

@@ -83,7 +83,7 @@ export const List = () => {
                 <TableCell align="left">Motivo do Cancelamento</TableCell>
                 <TableCell align="center">Informações</TableCell>
                 <TableCell align="center">Transferido</TableCell>
-                <TableCell align="right">Simulado</TableCell>
+                {/* <TableCell align="right">Simulado</TableCell> */}
               </TableRow>
             </TableHead>
             {calls.length > 0 ? (
@@ -109,12 +109,12 @@ export const List = () => {
                     </TableCell>
                     <TableCell align="left">{row.typeCanceled}</TableCell>
                     <TableCell align="center">{row.info}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="center">
                       {row.transferred == 1 ? 'SIM' : 'NÃO'}
                     </TableCell>
-                    <TableCell align="right">
+                    {/* <TableCell align="right">
                       <Checkbox color="secondary" />
-                    </TableCell>
+                    </TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>
