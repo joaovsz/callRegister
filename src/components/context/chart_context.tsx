@@ -113,7 +113,7 @@ export function ChartProvider(props: any) {
         setIsAuthenticated(true)
         navigate('/')
       } else {
-        setLocalUser(loggedUser)
+        setLocalUser(loggedUser) 
         navigate('/')
       }
     })

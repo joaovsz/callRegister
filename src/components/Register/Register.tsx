@@ -20,7 +20,7 @@ export const Register = () => {
       <main id="main-container">
         <span id="today">
           {/* <h2>Usuário: {localUser.username}</h2> */}
-          <h1>{formattedDate}</h1>
+          {/* <h1>{date?.toString()}</h1> */}
         </span>
         <section id="register">
           <Form />
