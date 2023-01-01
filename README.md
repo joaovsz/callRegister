@@ -2,29 +2,38 @@
   CallRegister
 </h1>
 
-<p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;
-</p>
 
 ## 💻 Projeto
 
 <p>
-O devFinances tem o objetivo de fazer cálculos monetários de uma forma intuitiva para ajudar o usuário a ter um controle de entradas e saídas em um período de tempo em que ele define.
+O callRegister é uma ferramenta de trabalho para auxiliar no controle diário de ligações recebidas pelos agentes de atendimento da equipe de Retenção do serviço de Oi Tv prestado pela empresa especializada em atendimento Tahto - Site Goiânia.
 </p>
+<h4>
+Projeto independente com intuito de melhorar o desempenho na entrega de resultados definidos pelos gestores
+</h4>
+<br>
 
+### Principais funcionalidades
+<br>
 
+- Registro do tipo de ligação recebida;
+- Exibição de gráficos e dados importantes das ligações registradas para controle de ações futuras;
+- Atalho com principais links corporativos utilizados pelos colaboradores;
+- Página reunindo matrizes de procedimentos internos que antes só eram acessados por meio de arquivos do Excel (Não será exibido por conter informações sensíveis da corporação);
+  
 
 ---
+<br>
 
 ## 🔖 Layout
+
 <p >
 <img src="./assets/HomoREAD.png" width="100%" >
 </p>
-<p>Você pode visualizar o projeto em funcionamento através [desse link](https://joaovsz.github.io/Project-Finance/).</p>
 
 ## Tecnologias
+
+<br>
 
 - React
   - ContexAPI
@@ -36,6 +45,7 @@ O devFinances tem o objetivo de fazer cálculos monetários de uma forma intuiti
 - Vite
 - SASS
 - FASE DE TESTES - Autenticação JWT e Armazenagem de Dados <br> com SQL por meio de uma API com node
+
 ---
 
-Feito com ♥ by JoãoVitor :wave: [Fale comigo!](mailto:joaovitor1713coin@gmail.com)
+Feito com ♥ by JoãoVitor: [Fale comigo!](mailto:joaovitor1713coin@gmail.com)
