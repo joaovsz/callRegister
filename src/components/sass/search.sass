@@ -1,0 +1,42 @@
+@import variables.sass
+@import mixins.sass
+
+#container
+    position: relative
+    left: 5rem
+    width: calc(100vw - 5rem) 
+    height: 100vh 
+    @include flexRow(0)
+    
+    #search-person
+        width: 50%
+        height:50% 
+        margin: auto
+        #form-wrapper
+            margin: auto
+            height: 60%
+            width: 100%
+            text-align: center
+            @include flexColumn(0, center , center )
+            
+            p
+                font-size: 3rem
+                color: $text
+                font-weight: bold
+            input
+                color: $text
+                width: 12rem 
+                height: 2rem
+            label
+                color: $text       
+    #result
+        margin: auto
+        width:50%
+        height:50%    
+        #img-container
+            width: 350px
+            height: 465px
+            margin: auto
+            img
+                width: 100%
+                height: 100%

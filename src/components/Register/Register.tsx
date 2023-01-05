@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider'
 import { Header } from '../Header/Header'
 import { useContext, useEffect, useState } from 'react'
 import { ChartsContext } from '../context/chart_context'
+import TextField from '@mui/material/TextField'
 
 export const Register = () => {
   const { localUser } = useContext(ChartsContext)
