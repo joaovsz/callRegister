@@ -11,6 +11,7 @@ import { useContext, useEffect, useState } from 'react'
 import { ChartsContext } from './components/context/chart_context'
 import Searchperson from './components/SearchPerson/Searchperson'
 
+
 function App() {
   const { token, loading } = useContext(ChartsContext)
 

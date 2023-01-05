@@ -7,7 +7,7 @@ import { Header } from '../Header/Header'
 import "../sass/search.sass"
 
 const initialState = {
-  matricula: null,
+  matricula: '',
 }
 
 export const theme = createTheme({
@@ -32,8 +32,8 @@ const Searchperson = () => {
  useEffect(() => {
     
   }, [matricula])
-  function HandleChangeBC(e: { target: { value: React.SetStateAction<null> } }){
-    setMatricula(e.target.value) 
+  function HandleChangeBC(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>){
+    setMatricula(event.target.value) 
   } 
 
   
@@ -55,10 +55,10 @@ const Searchperson = () => {
             id="outlined-number"
             label="Matrícula"
             type="number"
+            value={matricula}
             style={{
               borderRadius: 10,}}
-            value={matricula}
-            onChange={HandleChangeBC}
+            onChange={(e)=>HandleChangeBC(e)}
             />
             {/* <Button variant="contained" size="small"
             onClick={()=>{alert(matricula)}}>Pesquisar</Button> */}
