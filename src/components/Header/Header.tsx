@@ -9,6 +9,7 @@ import { Menu, MenuItem } from '@mui/material'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import TimelineIcon from '@mui/icons-material/Timeline'
 import React from 'react'
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { ChartsContext } from '../context/chart_context'
 import LogoutIcon from '@mui/icons-material/Logout'
 export const Header = () => {
@@ -52,9 +53,9 @@ export const Header = () => {
             <AttachMoneyIcon />
           </a>
 
-          {/* <Link to="/dashboard">
-            <TimelineIcon />
-          </Link> */}
+          <Link to="/searchperson">
+            <PersonSearchIcon />
+          </Link> 
 
           <Link to="/matrizes">
             <div className="navlist">
