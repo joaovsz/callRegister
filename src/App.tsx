@@ -9,6 +9,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom'
 // import PrivateRoutes from './components/utils/private_route'
 import { useContext, useEffect, useState } from 'react'
 import { ChartsContext } from './components/context/chart_context'
+import Searchperson from './components/SearchPerson/Searchperson'
 
 function App() {
   const { token, loading } = useContext(ChartsContext)
@@ -42,6 +43,7 @@ function App() {
         <Route element={<Login />} path="/login" />
         <Route element={<Signup />} path="/signup" />
         <Route element={<Dashboard />} path="/dashboard" />
+        <Route element={<Searchperson />} path="/searchperson" />
       </Routes>
     </>
   )
