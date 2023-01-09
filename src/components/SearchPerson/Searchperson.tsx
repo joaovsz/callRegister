@@ -67,7 +67,7 @@ const Searchperson = () => {
             </section>
             <section id="result">
               <div id="img-container">
-                <img src={`gip.brasiltelecom.com.br/gip/image/gip/producao/arquivoDptoPessoal/${matricula}/${matricula}.jpg`} alt="A foto do crachá do colaborador irá aparecer aqui" loading="lazy"/>
+                <img src={`http://gip.brasiltelecom.com.br/gip/image/gip/producao/arquivoDptoPessoal/${matricula}/${matricula}.jpg`} alt="A foto do crachá do colaborador irá aparecer aqui" loading="lazy"/>
               </div>
             </section>
     </main>
