@@ -53,9 +53,9 @@ export const Header = () => {
             <AttachMoneyIcon />
           </a>
 
-          <Link to="/searchperson">
+          {/* <Link to="/searchperson">
             <PersonSearchIcon />
-          </Link> 
+          </Link>  */}
 
           <Link to="/matrizes">
             <div className="navlist">
