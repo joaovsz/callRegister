@@ -33,8 +33,8 @@ export const matrizDB: Mascaras[] = [
     Consulte o procedimento em RECEP. TV> Orientações Cliente BRI > Desconhece migração para Pacote Pago`,
     mascara: `
     Cliente atendido conforme processo Desconhece Migração para Pacote Pago, concedida a correção: 
-    Vencimento:2022, Valor total da fatura vencida R$:________, Valor do desconto R$ ________
-    Vencimento:2022, Valor total da fatura a vencer R$:________, Valor do desconto R$ ________
+    Vencimento:2023, Valor total da fatura vencida R$:________, Valor do desconto R$ ________
+    Vencimento:2023, Valor total da fatura a vencer R$:________, Valor do desconto R$ ________
     Conceder isenção de multa? SIM
     `,
     area: 'B.O Retenção',
