@@ -4,8 +4,6 @@ import Chart from 'react-google-charts'
 import { ChartsContext } from '../context/chart_context'
 import { Header } from '../Header/Header'
 import '../sass/dashboard.sass'
-import { Register } from '../types/context'
-
 const typeCanceledBRI = [
   'Venda Indevida',
   'Dificuldade Financeira',
@@ -60,11 +58,6 @@ export const Dashboard = () => {
   //   ['29/10', 19.3, '#FF5D5D'],
   //   ['30/10', 21.45, 'color: #FF5D5D']
   // ]
-
-  useEffect(() => {
-    const savedCalls = localStorage.getItem('callsSaved')
-    const foundCalls = JSON.parse(savedCalls)
-  }, [])
 
   return (
     <>
