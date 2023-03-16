@@ -13,10 +13,6 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { ChartsContext } from '../context/chart_context'
 import LogoutIcon from '@mui/icons-material/Logout'
 export const Header = () => {
-  useEffect(() => {
-    getDate()
-  }, [])
-
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: any) => {
@@ -25,18 +21,7 @@ export const Header = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
-  function getDate() {
-    const date = new Date()
-    const year = String(date.getFullYear())
-    const day = String(date.getDay()).padStart(2, '0')
-    const month = String(date.getMonth()).padStart(2, '0')
-    const allDate = `${day}/${month}/${year}`
 
-    return allDate
-  }
-
-  const date = getDate()
-  const { logout } = useContext(ChartsContext)
   return (
     <header id="header">
       {/* <ContactPhoneIcon/> */}
@@ -63,6 +48,10 @@ export const Header = () => {
               {/* <p>O.S Interna</p> */}
             </div>
           </Link>
+          {/* <Link to="/dashboard">
+            <div className="navList"></div>
+            <TimelineIcon className="navIcons" />
+          </Link> */}
           <Button
             id="links"
             aria-controls={open ? 'basic-menu' : undefined}

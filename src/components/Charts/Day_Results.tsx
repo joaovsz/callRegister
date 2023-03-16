@@ -8,8 +8,7 @@ export const Day_Results = () => {
     totalCanceled,
     calcularTaxa,
     canceladoBRI,
-    canceladoCOMODATO,
-    dataRegister
+    canceladoCOMODATO
   } = useContext(ChartsContext)
   useEffect(() => {
     calcularTaxa(totalCanceled)

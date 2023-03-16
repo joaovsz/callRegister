@@ -32,6 +32,7 @@ export function ChartProvider(props: any) {
     initialValue.isAuthenticated
   )
   const [transferred, setTransferred] = useState(initialValue.transferred)
+  const [aux, setAux] = useState(initialValue.aux)
   const [loading, setLoading] = useState(initialValue.loading)
   const [dataRegister, setDataRegister] = useState(initialValue.dataRegister)
   const navigate = useNavigate()
@@ -50,23 +51,22 @@ export function ChartProvider(props: any) {
     info: info,
     transferred: transferred
   }
-  // useEffect(() => {
-  //   // const loggedIn = localStorage.getItem('localUser')
-  //   const savedCalls = localStorage.getItem('callsSaved')
-  //   const foundCalls = JSON.parse(savedCalls)
-  //   // if (loggedIn) {
-  //   // const foundUser = JSON.parse(loggedIn)
-  //   // setToken(foundUser.token)
-  //   // setLocalUser(foundUser)
-  //   // getData()
-  //   setCalls(foundCalls)
-  //   // }
-  //   // Auxilio para hook assincrono
-  //   setLoading(false)
-  // }, [
-  //   isAuthenticated
-  //   // token, isAuthenticated
-  // ])
+  useEffect(() => {
+    const savedCalls: any = localStorage.getItem('callsSaved')
+    const foundCalls = JSON.parse(savedCalls)
+    if (foundCalls == null) {
+      setCalls([])
+    } else {
+      setCalls(foundCalls)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (calls) {
+      localStorage.setItem('callsSaved', JSON.stringify(calls))
+    }
+    localStorage.setItem('callsSaved', JSON.stringify(calls))
+  }, [aux])
 
   useEffect(() => {
     calculateCalls(register.typeCall)
@@ -74,58 +74,8 @@ export function ChartProvider(props: any) {
     setTypeCanceled('')
     setInfo('')
     setTransferred(0)
-    console.log(dataRegister)
   }, [calls])
 
-  function handleChangeUser(e: { target: { value: string } }) {
-    setUser(e.target.value)
-  }
-  function handleChangePassword(e: { target: { value: string } }) {
-    setPassword(e.target.value)
-  }
-  function handleChangePasswordRepeat(e: { target: { value: string } }) {
-    setPasswordRepeat(e.target.value)
-  }
-  const handleSubmitRegister = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    await Axios.post('http://localhost:3000/user/register', {
-      username: user,
-      password: password,
-      password_repeat: password_repeat
-    }).then(response => {
-      console.log(response)
-    })
-  }
-  const handleSubmitLogin = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    await Axios.post('http://localhost:3000/user/login', {
-      username: user,
-      password: password
-    }).then(res => {
-      const loggedUser = {
-        id: res.data.user.user_id,
-        username: res.data.user.username,
-        token: res.data.token
-      }
-      setToken(loggedUser.token)
-      localStorage.setItem('localUser', JSON.stringify(loggedUser))
-      if (token) {
-        setIsAuthenticated(true)
-        navigate('/')
-      } else {
-        setLocalUser(loggedUser) 
-        navigate('/')
-      }
-    })
-    // localUser ? console.log(localUser) : console.log(token)
-  }
-  const logout = () => {
-    setLocalUser({ id: 0, username: '', token: '' })
-    setIsAuthenticated(false)
-    localStorage.removeItem('localUser')
-    setToken('')
-    navigate('/')
-  }
   function checkTransferred(e: any) {
     e.preventDefault()
     transferred == 0 ? setTransferred(1) : setTransferred(0)
@@ -145,7 +95,6 @@ export function ChartProvider(props: any) {
 
   function calcularTaxa(totalCanceled: number) {
     const cancelados = totalCanceled * 100
-    const dividendo = calls.length
     const filteredDividendo = calls.filter(call => call.transferred !== 1)
 
     return setTaxa(cancelados / filteredDividendo.length)
@@ -188,75 +137,23 @@ export function ChartProvider(props: any) {
     }
   }
 
-  async function registerCall(typeCall: string, typeCanceled: string) {
+  function registerCall(typeCall: string, typeCanceled: string) {
     if (typeCall) {
       setCalls(prevCall => [...prevCall, register])
-      localStorage.setItem('callsSaved', JSON.stringify(calls))
-      setIsAuthenticated(!isAuthenticated)
       setDate(moment().format())
-      await Axios.post('http://localhost:3000/user/markup', {
-        is_canceled:
-          typeCall === 'CANCELADO_COMODATO'
-            ? 1
-            : typeCall === 'CANCELADO_BRI'
-            ? 1
-            : 0,
-        registered_at: date,
-        user_registered: localUser.id,
-        type_call: typeCall,
-        info: info,
-        type_canceled: typeCanceled,
-        transferred: transferred
-      }).then(response => {
-        console.log(response.data)
-      })
+    } else {
       alert('Preencha o tipo da chamada')
     }
+
+    setAux(!aux)
+
+    localStorage.setItem('callsSaved', JSON.stringify(calls))
   }
 
-  async function getData(date: string) {
-    await Axios.post('http://localhost:3000/user/loadregister', {
-      user_registered: localUser.id
-    })
-      .then(function setData(response) {
-        const data = response.data
-        const dataRegisterCall: Register[] = data.map((calls: any) => {
-          const getDataCalls = {
-            registered_at: calls.registered_at.substr(0, 10),
-            is_canceled: calls.is_canceled,
-            user_registered: calls.user_registered,
-            typeCall: calls.type_call,
-            typeCanceled: calls.type_canceled,
-            info: calls.info,
-            transferred: calls.transferred
-          }
-          return getDataCalls
-        })
-        const filteredCalls = dataRegisterCall.filter(
-          (dataRegisterCall: Register) => dataRegisterCall.registered_at == date
-        )
-
-        // setDataRegister(filteredCalls)
-        setCalls(filteredCalls)
-      })
-      .finally(() => {
-        setLoading(true)
-      })
-  }
   return (
     <ChartsContext.Provider
       value={{
-        isAuthenticated,
-        token,
         dataRegister,
-        handleChangePasswordRepeat,
-        password_repeat,
-        handleChangeUser,
-        handleChangePassword,
-        handleSubmitRegister,
-        handleSubmitLogin,
-        password,
-        user,
         checkTransferred,
         typeCall,
         date,
@@ -265,13 +162,11 @@ export function ChartProvider(props: any) {
         totalCanceled,
         typeCanceled,
         info,
-        getData,
         handleChangeCanceled,
         handleChange,
         handleChangeInfo,
         registerCall,
         taxa,
-        logout,
         loading,
         calls,
         canceladoCOMODATO,
@@ -279,8 +174,7 @@ export function ChartProvider(props: any) {
         badCall,
         retidos,
         PrePago,
-        transferred,
-        localUser
+        transferred
       }}
     >
       {props.children}

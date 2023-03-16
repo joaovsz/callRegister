@@ -6,37 +6,21 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import { ChartsContext } from '../../context/chart_context'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Chart_container } from '../../Charts/Chart_container'
-import Checkbox from '@mui/material/Checkbox'
 import dayjs, { Dayjs } from 'dayjs'
-import TextField from '@mui/material/TextField'
-import Stack from '@mui/material/Stack'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import createTheme from '@mui/material/styles/createTheme'
-import { ThemeProvider } from '@mui/material'
-import { Register } from '../../types/context'
+
 
 export const List = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs())
-  const {
-    getData,
-    dataRegister,
-    isAuthenticated,
-    loading,
-    calls,
-    calculateCalls
-  } = useContext(ChartsContext)
+  const { calls } = useContext(ChartsContext)
   const theme = createTheme({
     palette: {
       primary: {
         main: '#8758FF'
       },
       secondary: {
-        // This is green.A700 as hex.
         main: '#96BAFF'
       }
     },
@@ -44,14 +28,8 @@ export const List = () => {
       fontFamily: ['Poppins'].join(',')
     }
   })
-  useEffect(() => {
-    // getData()
-    const date = dayjs(value).format('YYYY/MM/DD')
 
-    getData(date)
-  }, [value])
 
-  // console.log('Vindo da lista', dataRegister[0])
   return (
     <div id="tableInfo">
       <div id="tabela">

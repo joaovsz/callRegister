@@ -21,8 +21,8 @@ export const initialValue = {
   retidos: 0,
   PrePago: 0,
   user: '',
-  localUser: {id: 0, username:"", token:""},
-  dataRegister: [] ,
+  localUser: { id: 0, username: '', token: '' },
+  dataRegister: [],
   password: '',
   password_repeat: '',
   date: moment().format(),
@@ -32,6 +32,7 @@ export const initialValue = {
   isAuthenticated: false,
   totalCanceled: 0,
   transferred: 0,
+  aux: false,
   calls: [],
   handleChangePassword: () => {},
   handleChangePasswordRepeat: () => {},
@@ -43,11 +44,7 @@ export const initialValue = {
   registerCall: () => {},
   calculateCalls: () => {},
   calcularTaxa: () => {},
-  checkTransferred: () => {},
-  handleSubmitRegister: () => {},
-  handleSubmitLogin: () => { },
-  getData: () => {}
- 
+  checkTransferred: () => {}
 }
 export interface chartContexts {
   typeCall: string
@@ -55,12 +52,7 @@ export interface chartContexts {
   typeCanceled: string
   info: string
   loading: boolean
-  token: string
   date: string
-  user: string
-  password: string
-  password_repeat: string
-  isAuthenticated: boolean
   canceladoCOMODATO: number
   canceladoBRI: number
   badCall: number
@@ -69,20 +61,12 @@ export interface chartContexts {
   taxa: number
   totalCanceled: number
   calls: Register[]
-  localUser: {id: number, username:string, token: string}
   dataRegister: Register[]
-  handleSubmitRegister: (event: React.FormEvent<HTMLFormElement>) => void
-  handleSubmitLogin: (event: React.FormEvent<HTMLFormElement>) => void
   handleChange: (e: any, canceledValue: string) => void
   handleChangeCanceled: (e: SelectChangeEvent) => void
   handleChangeInfo: (e: { target: { value: string } }) => void
-  handleChangeUser: (e: { target: { value: string } }) => void
-  handleChangePassword: (e: { target: { value: string } }) => void
-  handleChangePasswordRepeat: (e: { target: { value: string } }) => void
   registerCall: (typeCall: string, typeCanceled: string, date: string) => void
   calculateCalls: (type: string) => void
   calcularTaxa: (totalCanceled: number) => void
   checkTransferred: (e: any) => void
-  logout: () => void
-  getData: (date: string) => void  
 }
