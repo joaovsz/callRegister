@@ -38,7 +38,7 @@ export function ChartProvider(props: any) {
   const navigate = useNavigate()
 
   const register: Register = {
-    registered_at: moment().format(),
+    registered_at: moment().format().substring(0, 10),
     is_canceled:
       typeCall === 'CANCELADO_COMODATO'
         ? 1
@@ -173,6 +173,7 @@ export function ChartProvider(props: any) {
         canceladoBRI,
         badCall,
         retidos,
+        setCalls,
         PrePago,
         transferred
       }}

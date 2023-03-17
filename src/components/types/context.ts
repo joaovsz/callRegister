@@ -69,4 +69,5 @@ export interface chartContexts {
   calculateCalls: (type: string) => void
   calcularTaxa: (totalCanceled: number) => void
   checkTransferred: (e: any) => void
+
 }
