@@ -52,7 +52,7 @@ export const List = () => {
         <div id="filtrar">
           <h2>Histórico de chamadas</h2>
 
-          <div id="date-selector">
+          {/* <div id="date-selector">
             <h3>Filtrar por data &gt; </h3>
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -72,7 +72,7 @@ export const List = () => {
                 </Stack>
               </LocalizationProvider>
             </ThemeProvider>
-          </div>
+          </div> */}
           {/* <button
             id="saveList"
             onClick={() => {
