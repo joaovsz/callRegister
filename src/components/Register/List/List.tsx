@@ -9,6 +9,8 @@ import { ChartsContext } from '../../context/chart_context'
 import { SetStateAction, useContext, useEffect, useState } from 'react'
 import { Chart_container } from '../../Charts/Chart_container'
 import dayjs, { Dayjs } from 'dayjs'
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
+import BookmarkIcon from '@mui/icons-material/Bookmark'
 import createTheme from '@mui/material/styles/createTheme'
 import ThemeProvider from '@mui/material/styles/ThemeProvider'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/LocalizationProvider'
@@ -16,12 +18,12 @@ import Stack from '@mui/material/Stack/Stack'
 import TextField, { TextFieldProps } from '@mui/material/TextField'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
-import { Register } from '../../types/context'
+import { Checkbox } from '@mui/material'
 
 export const List = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs())
   const [formattedDate, setFormattedDate] = useState<Dayjs | null | String>()
-
+  const [clicked, setClicked] = useState(false)
   const { calls } = useContext(ChartsContext)
 
   useEffect(() => {
@@ -49,6 +51,7 @@ export const List = () => {
       <div id="tabela">
         <div id="filtrar">
           <h2>Histórico de chamadas</h2>
+
           <div id="date-selector">
             <h3>Filtrar por data &gt; </h3>
             <ThemeProvider theme={theme}>
@@ -70,6 +73,20 @@ export const List = () => {
               </LocalizationProvider>
             </ThemeProvider>
           </div>
+          {/* <button
+            id="saveList"
+            onClick={() => {
+              setClicked(!clicked)
+            }}
+          >
+            Salvar
+            <Checkbox
+              checked={clicked}
+              onChange={() => setClicked(!clicked)}
+              icon={<BookmarkBorderIcon />}
+              checkedIcon={<BookmarkIcon />}
+            />
+          </button> */}
         </div>
         <TableContainer component={Paper} id="table">
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
