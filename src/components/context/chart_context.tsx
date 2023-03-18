@@ -173,7 +173,6 @@ export function ChartProvider(props: any) {
         canceladoBRI,
         badCall,
         retidos,
-        setCalls,
         PrePago,
         transferred
       }}
