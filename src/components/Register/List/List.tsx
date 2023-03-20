@@ -20,6 +20,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import { Checkbox, IconButton } from '@mui/material'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
+import { DatePicker } from '@mui/x-date-pickers'
 
 export const List = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs())
@@ -41,12 +42,8 @@ export const List = () => {
   }
   const theme = createTheme({
     palette: {
-      primary: {
-        main: '#8758FF'
-      },
-      secondary: {
-        main: '#96BAFF'
-      }
+      mode: 'dark',
+      primary: { main: '#8758FF' }
     },
     typography: {
       fontFamily: ['Poppins'].join(',')
@@ -63,7 +60,7 @@ export const List = () => {
             <p>Filtrar por data &gt; </p>
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DesktopDatePicker
+                <DatePicker
                   className="customDatePicker"
                   value={value}
                   minDate={dayjs('2022-01-01')}
