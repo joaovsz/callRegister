@@ -39,6 +39,7 @@ export function ChartProvider(props: any) {
 
   const register: Register = {
     registered_at: moment().format().substring(0, 10),
+    id: moment().format(),
     is_canceled:
       typeCall === 'CANCELADO_COMODATO'
         ? 1
@@ -92,7 +93,11 @@ export function ChartProvider(props: any) {
   function handleChangeInfo(event: { target: { value: string } }) {
     setInfo(event.target.value)
   }
-
+  function deleteRow(index: string | number, id: string) {
+    const filteredRow = calls.filter(c => c.id != id)
+    setCalls(filteredRow)
+    setAux(!aux)
+  }
   function calcularTaxa(totalCanceled: number) {
     const cancelados = totalCanceled * 100
     const filteredDividendo = calls.filter(call => call.transferred !== 1)
@@ -174,7 +179,8 @@ export function ChartProvider(props: any) {
         badCall,
         retidos,
         PrePago,
-        transferred
+        transferred,
+        deleteRow
       }}
     >
       {props.children}
