@@ -64,6 +64,7 @@ export const List = () => {
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DesktopDatePicker
+                  className="customDatePicker"
                   value={value}
                   minDate={dayjs('2022-01-01')}
                   onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) => {
