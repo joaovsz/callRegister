@@ -18,20 +18,27 @@ import Stack from '@mui/material/Stack/Stack'
 import TextField, { TextFieldProps } from '@mui/material/TextField'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
-import { Checkbox } from '@mui/material'
+import { Checkbox, IconButton } from '@mui/material'
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 
 export const List = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs())
   const [formattedDate, setFormattedDate] = useState<Dayjs | null | String>()
   const [clicked, setClicked] = useState(false)
-  const { calls } = useContext(ChartsContext)
+  const { calls, deleteRow } = useContext(ChartsContext)
 
   useEffect(() => {
     setFormattedDate(dayjs(value).format('YYYY-MM-DD'))
-    console.log(formattedDate)
-    console.log(calls)
   }, [value])
 
+  function savedStorage() {
+    const foundCalls = localStorage.getItem('callsSaved')
+    console.log(localStorage.getItem('callsSaved'))
+    if (foundCalls == '[]' && calls.length > 0) {
+      localStorage.setItem('callsSaved', JSON.stringify(calls))
+    }
+    setClicked(!clicked)
+  }
   const theme = createTheme({
     palette: {
       primary: {
@@ -50,10 +57,10 @@ export const List = () => {
     <div id="tableInfo">
       <div id="tabela">
         <div id="filtrar">
-          <h2>Histórico de chamadas</h2>
+          <p>Histórico de chamadas</p>
 
-          {/* <div id="date-selector">
-            <h3>Filtrar por data &gt; </h3>
+          <div id="date-selector">
+            <p>Filtrar por data &gt; </p>
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Stack spacing={3}>
@@ -72,23 +79,29 @@ export const List = () => {
                 </Stack>
               </LocalizationProvider>
             </ThemeProvider>
-          </div> */}
-          {/* <button
+          </div>
+          <button
+            className={clicked == false ? 'btn-check' : 'btn'}
             id="saveList"
-            onClick={() => {
-              setClicked(!clicked)
-            }}
+            onClick={
+              !clicked
+                ? () => {
+                    savedStorage()
+                  }
+                : () => {}
+            }
           >
             Salvar
             <Checkbox
               checked={clicked}
-              onChange={() => setClicked(!clicked)}
+              // onChange={savedStorage}
+              sx={{ padding: 0 }}
               icon={<BookmarkBorderIcon />}
               checkedIcon={<BookmarkIcon />}
             />
-          </button> */}
+          </button>
         </div>
-        <TableContainer component={Paper} id="table">
+        <TableContainer component={Paper} id="table" sx={{ borderRadius: 2 }}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead id="trow">
               <TableRow>
@@ -96,7 +109,7 @@ export const List = () => {
                 <TableCell align="left">Motivo do Cancelamento</TableCell>
                 <TableCell align="center">Informações</TableCell>
                 <TableCell align="center">Transferido</TableCell>
-                {/* <TableCell align="right">Simulado</TableCell> */}
+                <TableCell align="right">Excluir</TableCell>
               </TableRow>
             </TableHead>
             {calls.length > 0 ? (
@@ -126,9 +139,15 @@ export const List = () => {
                       <TableCell align="center">
                         {row.transferred == 1 ? 'SIM' : 'NÃO'}
                       </TableCell>
-                      {/* <TableCell align="right">
-                      <Checkbox color="secondary" />
-                    </TableCell> */}
+                      <TableCell align="right">
+                        <IconButton
+                          onClick={() => deleteRow(index, row.id)}
+                          aria-label="delete"
+                          style={{ color: 'white' }}
+                        >
+                          <DeleteOutlineOutlinedIcon />
+                        </IconButton>
+                      </TableCell>
                     </TableRow>
                   ) : (
                     false

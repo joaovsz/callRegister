@@ -4,6 +4,7 @@ import { Register } from "../Register/Register"
 
 export type Register = {
   registered_at: string
+  id: string
   is_canceled: number
   user_registered: number
   typeCall: string
@@ -44,7 +45,8 @@ export const initialValue = {
   registerCall: () => {},
   calculateCalls: () => {},
   calcularTaxa: () => {},
-  checkTransferred: () => {}
+  checkTransferred: () => {},
+  deleteRow: () => {}
 }
 export interface chartContexts {
   typeCall: string
@@ -69,5 +71,5 @@ export interface chartContexts {
   calculateCalls: (type: string) => void
   calcularTaxa: (totalCanceled: number) => void
   checkTransferred: (e: any) => void
-
+  deleteRow: (index: string | number, id: string) => void
 }
