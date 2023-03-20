@@ -78,17 +78,18 @@ export const Chart_container = () => {
   return (
     <>
       {calls.length > 0 ? (
-        // <Chart
-        //   chartType="PieChart"
-        //   data={data}
-        //   width={'500px'}
-        //   height={'100%'}
-        //   options={typeCall}
-        // />
+        // <>
+        //   <Chart
+        //     chartType="PieChart"
+        //     data={data}
+        //     width={'100%'}
+        //     height={'100%'}
+        //     options={typeCall}
+        //   />
         <Chart
           chartType="PieChart"
           data={dataTypeCanceled}
-          width={'100%'}
+          width={'700px'}
           height={'100%'}
           options={typeCancelamento}
         />
