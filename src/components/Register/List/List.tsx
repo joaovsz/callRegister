@@ -61,24 +61,21 @@ export const List = () => {
 
           <div id="date-selector">
             <p>Filtrar por data &gt; </p>
-            <ThemeProvider theme={theme}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <Stack spacing={3} id="filterContainer">
-                  <DesktopDatePicker
-                    value={value}
-                    minDate={dayjs('2022-01-01')}
-                    onChange={(
-                      newValue: SetStateAction<dayjs.Dayjs | null>
-                    ) => {
-                      setValue(newValue)
-                    }}
-                    renderInput={(
-                      params: JSX.IntrinsicAttributes & TextFieldProps
-                    ) => <TextField {...params} />}
-                  />
-                </Stack>
-              </LocalizationProvider>
-            </ThemeProvider>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <Stack spacing={3} id="filterContainer">
+                <DesktopDatePicker
+                  value={value}
+                  minDate={dayjs('2022-01-01')}
+                  onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) => {
+                    setValue(newValue)
+                  }}
+                  renderInput={(
+                    params: JSX.IntrinsicAttributes & TextFieldProps
+                  ) => <TextField {...params} />}
+                />
+              </Stack>
+            </LocalizationProvider>
           </div>
           <button
             className={clicked == false ? 'btn-check' : 'btn'}
