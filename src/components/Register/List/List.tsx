@@ -63,7 +63,7 @@ export const List = () => {
             <p>Filtrar por data &gt; </p>
             <ThemeProvider theme={theme}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <Stack spacing={3}>
+                <Stack spacing={3} id="filterContainer">
                   <DesktopDatePicker
                     value={value}
                     minDate={dayjs('2022-01-01')}
