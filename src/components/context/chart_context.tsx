@@ -1,9 +1,10 @@
 import { SelectChangeEvent } from '@mui/material/Select'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, SetStateAction, useEffect, useState } from 'react'
 import { chartContexts, initialValue, Register } from '../types/context'
 import moment from 'moment'
 import Axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import dayjs, { Dayjs } from 'dayjs'
 
 //No contexto sempre criar valores iniciais e declarações de tipo
 
@@ -27,6 +28,7 @@ export function ChartProvider(props: any) {
   const [date, setDate] = useState(initialValue.date)
   const [taxa, setTaxa] = useState(initialValue.taxa)
   const [totalCanceled, setTotalCanceled] = useState(initialValue.totalCanceled)
+  const [value, setValue] = useState<Dayjs | null>(dayjs())
   const [token, setToken] = useState(initialValue.token)
   const [isAuthenticated, setIsAuthenticated] = useState(
     initialValue.isAuthenticated
@@ -35,6 +37,7 @@ export function ChartProvider(props: any) {
   const [aux, setAux] = useState(initialValue.aux)
   const [loading, setLoading] = useState(initialValue.loading)
   const [dataRegister, setDataRegister] = useState(initialValue.dataRegister)
+  const [clicked, setClicked] = useState(false)
   const navigate = useNavigate()
 
   const register: Register = {
@@ -154,12 +157,24 @@ export function ChartProvider(props: any) {
 
     localStorage.setItem('callsSaved', JSON.stringify(calls))
   }
+  function setValueDate(newValue: SetStateAction<dayjs.Dayjs | null>) {
+    setValueDate(newValue)
+  }
 
+  function savedStorage() {
+    const foundCalls = localStorage.getItem('callsSaved')
+    console.log(localStorage.getItem('callsSaved'))
+    if (foundCalls == '[]' && calls.length > 0) {
+      localStorage.setItem('callsSaved', JSON.stringify(calls))
+    }
+    setClicked(!clicked)
+  }
   return (
     <ChartsContext.Provider
       value={{
         dataRegister,
         checkTransferred,
+        savedStorage,
         typeCall,
         date,
         calculateCalls,
@@ -181,7 +196,8 @@ export function ChartProvider(props: any) {
         PrePago,
         transferred,
         aux,
-        deleteRow
+        deleteRow,
+        clicked
       }}
     >
       {props.children}

@@ -25,21 +25,13 @@ import { DatePicker } from '@mui/x-date-pickers'
 export const List = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs())
   const [formattedDate, setFormattedDate] = useState<Dayjs | null | String>()
-  const [clicked, setClicked] = useState(false)
-  const { calls, deleteRow } = useContext(ChartsContext)
+
+  const { calls, deleteRow, clicked, savedStorage } = useContext(ChartsContext)
 
   useEffect(() => {
     setFormattedDate(dayjs(value).format('YYYY-MM-DD'))
   }, [value])
 
-  function savedStorage() {
-    const foundCalls = localStorage.getItem('callsSaved')
-    console.log(localStorage.getItem('callsSaved'))
-    if (foundCalls == '[]' && calls.length > 0) {
-      localStorage.setItem('callsSaved', JSON.stringify(calls))
-    }
-    setClicked(!clicked)
-  }
   const theme = createTheme({
     palette: {
       mode: 'dark',

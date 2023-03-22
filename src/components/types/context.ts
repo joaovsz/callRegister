@@ -16,6 +16,7 @@ export const initialValue = {
   typeCall: '',
   typeCanceled: '',
   info: '',
+  clicked: false,
   canceladoCOMODATO: 0,
   canceladoBRI: 0,
   badCall: 0,
@@ -46,7 +47,8 @@ export const initialValue = {
   calculateCalls: () => {},
   calcularTaxa: () => {},
   checkTransferred: () => {},
-  deleteRow: () => {}
+  deleteRow: () => {},
+  savedStorage: () => {}
 }
 export interface chartContexts {
   typeCall: string
@@ -62,6 +64,7 @@ export interface chartContexts {
   PrePago: number
   taxa: number
   aux: boolean
+  clicked: boolean
   totalCanceled: number
   calls: Register[]
   dataRegister: Register[]
@@ -73,4 +76,5 @@ export interface chartContexts {
   calcularTaxa: (totalCanceled: number) => void
   checkTransferred: (e: any) => void
   deleteRow: (index: string | number, id: string) => void
+  savedStorage: () => void
 }
