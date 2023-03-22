@@ -13,9 +13,14 @@ export const Day_Results = () => {
     <>
       <section id="results">
         <div id="table-result">
-          <span>Resultado Diário</span>
+          <span>Resultados</span>
+          <span className="mensal">
+            {' '}
+            <p>Atendidas Mês</p>
+            <p>{calls.length}</p>
+          </span>
           <div id="atendidas">
-            <span>Total de Atendidas</span>
+            <span>Atendidas Hoje</span>
             <span className="quantity">
               <p>
                 Total:{' '}
