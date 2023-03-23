@@ -180,6 +180,7 @@ export function ChartProvider(props: any) {
         retidos,
         PrePago,
         transferred,
+        aux,
         deleteRow
       }}
     >

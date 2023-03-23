@@ -5,23 +5,69 @@ import '../sass/register.sass'
 import { Register } from '../types/context'
 
 export const Chart_container = () => {
-  const { retidos, canceladoCOMODATO, canceladoBRI, badCall, PrePago, calls } =
-    useContext(ChartsContext)
+  const {
+    retidos,
+    canceladoCOMODATO,
+    canceladoBRI,
+    badCall,
+    PrePago,
+    calls,
+    date
+  } = useContext(ChartsContext)
 
   const type = {
-    VendaIndevida: calls.filter(c => c.typeCanceled == 'Venda Indevida'),
-    PrecoAlto: calls.filter(c => c.typeCanceled == 'Preço Alto '),
-    Desmembrado: calls.filter(c => c.typeCanceled == 'Desmembrado'),
-    SemAgendamento: calls.filter(c => c.typeCanceled == 'Sem Agendamento'),
-    ProblemaTecnico: calls.filter(c => c.typeCanceled == 'Problema Técnico'),
-    ProblemaComFatura: calls.filter(
-      c => c.typeCanceled == 'Problema com Fatura'
+    VendaIndevida: calls.filter(
+      c =>
+        c.typeCanceled == 'Venda Indevida' &&
+        c.registered_at == date.substring(0, 10)
     ),
-    Mudanca: calls.filter(c => c.typeCanceled == 'MUDEND'),
-    VendaEquip: calls.filter(c => c.typeCanceled == 'Venda do Equipamento'),
-    Insatisfacao: calls.filter(c => c.typeCanceled == 'Insatisfação Geral '),
-    CanalOi: calls.filter(c => c.typeCanceled == 'Canal Oi!'),
-    PrePago: calls.filter(c => c.typeCall == 'PRE_PAGO')
+    PrecoAlto: calls.filter(
+      c =>
+        c.typeCanceled == 'Preço Alto ' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    Desmembrado: calls.filter(
+      c =>
+        c.typeCanceled == 'Desmembrado' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    SemAgendamento: calls.filter(
+      c =>
+        c.typeCanceled == 'Sem Agendamento' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    ProblemaTecnico: calls.filter(
+      c =>
+        c.typeCanceled == 'Problema Técnico' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    ProblemaComFatura: calls.filter(
+      c =>
+        c.typeCanceled == 'Problema com Fatura' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    Mudanca: calls.filter(
+      c =>
+        c.typeCanceled == 'MUDEND' && c.registered_at == date.substring(0, 10)
+    ),
+    VendaEquip: calls.filter(
+      c =>
+        c.typeCanceled == 'Venda do Equipamento' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    Insatisfacao: calls.filter(
+      c =>
+        c.typeCanceled == 'Insatisfação Geral ' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    CanalOi: calls.filter(
+      c =>
+        c.typeCanceled == 'Canal Oi!' &&
+        c.registered_at == date.substring(0, 10)
+    ),
+    PrePago: calls.filter(
+      c => c.typeCall == 'PRE_PAGO' && c.registered_at == date.substring(0, 10)
+    )
   }
 
   const data = [

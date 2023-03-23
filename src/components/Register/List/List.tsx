@@ -85,7 +85,7 @@ export const List = () => {
                 : () => {}
             }
           >
-            Salvar
+            {!clicked ? 'Salvar' : 'Salvo!'}
             <Checkbox
               checked={clicked}
               // onChange={savedStorage}

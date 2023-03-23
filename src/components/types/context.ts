@@ -61,6 +61,7 @@ export interface chartContexts {
   retidos: number
   PrePago: number
   taxa: number
+  aux: boolean
   totalCanceled: number
   calls: Register[]
   dataRegister: Register[]
