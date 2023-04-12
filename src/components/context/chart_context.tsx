@@ -103,7 +103,11 @@ export function ChartProvider(props: any) {
   }
   function calcularTaxa(totalCanceled: number) {
     const cancelados = totalCanceled * 100
-    const filteredDividendo = calls.filter(call => call.transferred !== 1)
+    const filteredDividendo = calls.filter(
+      (call: Register) =>
+        call.transferred !== 1 &&
+        call.registered_at == dayjs(value).format('YYYY-MM-DD')
+    )
 
     return setTaxa(cancelados / filteredDividendo.length)
   }
@@ -116,14 +120,18 @@ export function ChartProvider(props: any) {
         })
         return setRetidos(retidoQuantity.length)
       case 'CANCELADO_BRI':
-        const canceledQuantity = calls.filter(calls => {
-          return calls.typeCall === 'CANCELADO_BRI'
-        })
+        const canceledQuantity = calls.filter(
+          calls =>
+            calls.typeCall === 'CANCELADO_BRI' && calls.registered_at == date
+        )
         setTotalCanceled(prevCanceled => prevCanceled + 1)
         return setBRI(canceledQuantity.length)
       case 'CANCELADO_COMODATO':
         const canceledCMDQuantity = calls.filter(calls => {
-          return calls.typeCall === 'CANCELADO_COMODATO'
+          return (
+            calls.typeCall === 'CANCELADO_COMODATO' &&
+            calls.registered_at == date
+          )
         })
         setTotalCanceled(prevCanceled => prevCanceled + 1)
         return setCMD(canceledCMDQuantity.length)
