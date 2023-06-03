@@ -30,6 +30,7 @@ export const List = () => {
 
   useEffect(() => {
     setFormattedDate(dayjs(value).format('YYYY-MM-DD'))
+     savedStorage()
   }, [value])
 
   const theme = createTheme({

@@ -4,7 +4,6 @@
 #main-container
   position: relative
   left: 6rem
-  
   width: calc(100vw - 6rem)
   height: 100vh
   @include flexColumn(2rem, flex-start, center)
@@ -31,7 +30,7 @@
 
   #results
     width: 40%
-    height: 25rem
+    height: 100%
     padding:0 2rem
     .quantity
       text-align: right
@@ -44,48 +43,54 @@
       font-size: 1.2rem
       width: 100%
       height: 100%
+      padding: 2rem 0
+      align-items: stretch
       .mensal
         width: 100%
         background: $white-bg
-        border-radius:1rem
+        border-radius: 1rem
         @include flexRow(1.5rem)
         padding-top: 1.5rem
         padding-bottom: 1.5rem
         font-weight: bold
-        height: 2.4rem
+        max-height: 2.4rem
         p
           color: $black
         
     span
-      color: $text
-      // font-weight: 700
-
-    #atendidas, #cancelados, #taxa, #BRI, #COMODATO
-      border-radius: 1rem
-      height: 2.4rem
-      color: $text
-      @include flexRow(1.5rem)
-      padding-top: 1.5rem
-      padding-bottom: 1.5rem
-      background-color: $gray-light
       width: 100%
+      
+      color: $text
+      font-weight: 700
+
+    #atendidas, #cancelados, #taxa,#COMODATO, #BRI
+      border-radius: 1rem
+      color: $text
+      height: 100%
+      @include flexRow(1.5rem)
+      width: 100%
+      background-color: $gray-light
 
     #atendidas
       background-color: $green
+      
     #cancelados
+      
       background-color: $red
+      
     #taxa
       background-color: $blue
-    #BRI, #COMODATO
+    #BRI
       background-color: $yellow
     #COMODATO
+      @include flexRow(1.5rem)
       background-color: $black
 
   #tableInfo
     display: flex
     width: calc(100% - 8rem)
     margin: 0 4rem 0 4rem
-    height: 33vh
+    height: 50%
     align-items: bottom
     justify-content: flex-start
     // margin: 0 auto
