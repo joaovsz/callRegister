@@ -11,11 +11,6 @@ import dayjs, { Dayjs } from 'dayjs'
 export const ChartsContext = createContext<chartContexts>(initialValue)
 export function ChartProvider(props: any) {
   const [localUser, setLocalUser] = useState(initialValue.localUser)
-  const [user, setUser] = useState(initialValue.user)
-  const [password, setPassword] = useState(initialValue.password)
-  const [password_repeat, setPasswordRepeat] = useState(
-    initialValue.password_repeat
-  )
   const [typeCall, setTypeCall] = useState(initialValue.typeCall)
   const [typeCanceled, setTypeCanceled] = useState(initialValue.typeCanceled)
   const [calls, setCalls] = useState<Register[]>(initialValue.calls)
@@ -29,16 +24,11 @@ export function ChartProvider(props: any) {
   const [taxa, setTaxa] = useState(initialValue.taxa)
   const [totalCanceled, setTotalCanceled] = useState(initialValue.totalCanceled)
   const [value, setValue] = useState<Dayjs | null>(dayjs())
-  const [token, setToken] = useState(initialValue.token)
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    initialValue.isAuthenticated
-  )
   const [transferred, setTransferred] = useState(initialValue.transferred)
   const [aux, setAux] = useState(initialValue.aux)
   const [loading, setLoading] = useState(initialValue.loading)
   const [dataRegister, setDataRegister] = useState(initialValue.dataRegister)
   const [clicked, setClicked] = useState(false)
-  const navigate = useNavigate()
 
   const register: Register = {
     registered_at: moment().format().substring(0, 10),
