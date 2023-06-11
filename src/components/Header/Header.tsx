@@ -9,6 +9,7 @@ import { Menu, MenuItem } from '@mui/material'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import TimelineIcon from '@mui/icons-material/Timeline'
 import React from 'react'
+
 export const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
@@ -34,10 +35,6 @@ export const Header = () => {
           <a target="_blank" href="https://simuladorrv.netlify.app">
             <AttachMoneyIcon />
           </a>
-
-          {/* <Link to="/searchperson">
-            <PersonSearchIcon />
-          </Link>  */}
 
           <Link to="/matrizes">
             <div className="navlist">
